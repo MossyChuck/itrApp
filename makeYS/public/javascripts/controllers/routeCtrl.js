@@ -1,3 +1,3 @@
 angular.module("app").controller("routeCtrl",function($scope){
-    $scope.url = "/htmls/main.html";
+    $scope.url = "/htmls/signUp.html";
 });
