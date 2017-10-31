@@ -1,11 +1,12 @@
 angular.module("app").controller("routeCtrl",function($scope){
-    $scope.url = "/htmls/main.html";
-    $scope.$on('changeUrl', function(event,args){
-        $scope.url = args.url;
+    $scope.contentUrl = "/htmls/content/main.html";
+    $scope.headerUrl = "/htmls/headers/nonAutorized.html";
+    $scope.$on('changeContentUrl', function(event,args){
+        $scope.contentUrl = args.url;
         $scope.message = args.message;
     });
-    $scope.changeUrl = function(url){
-        $scope.url = url;
+    $scope.changeContentUrl = function(url){
+        $scope.contentUrl = url;
     }
     
 });

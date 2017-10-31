@@ -5,9 +5,7 @@ header nav{
   background-color: skyblue;
   
 }
-main{
-  margin-top: 71px;
-}
+
 @media (min-width: 48em) {
   html {
     font-size: 18px;

@@ -5,11 +5,11 @@ angular.module("app").controller("signUpCtrl",function($scope, $http) {
         $http.post('/registerUser',$scope.newUser).then(function(responce){
             $scope.message = responce.data;
             if(responce.data == "send"){
-                //$rootscope.url = "/htmls/emailIsSend.html";
-                $scope.$emit('changeUrl',{url:'/htmls/message.html',message:'Verification email is send to you.'})
+                //$rootscope.url = "/htmls/content/emailIsSend.html";
+                $scope.$emit('changeContentUrl',{url:'/htmls/content/message.html',message:'Verification email is send to you.'})
             }
             if(responce.data == "verifyed"){
-                $scope.$emit('changeUrl',{url:'/htmls/message.html',message:'Email is verifyed'});
+                $scope.$emit('changeContentUrl',{url:'/htmls/content/message.html',message:'Email is verifyed'});
             }
         });
         
