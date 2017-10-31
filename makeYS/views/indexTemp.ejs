@@ -3,22 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>makeYS</title>
-    <link rel="stylesheet" href="../public/stylesheets/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../public/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a href="#" class="navbar-brand">MakeYS</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuContent" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <a href="#" class="navbar-brand">MakeYS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuContent" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="menuContent">
-          <ul class="nav nav-pills">
+          <ul class="nav nav-pills mr-auto">
             <li class="nav-item">
               <a class="nav-link active" href="#">Home</a>
             </li>
@@ -33,23 +31,25 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Setings</a>
             </li>
+            <li class="nav-item">
+              <form class="navbar-form form-inline" role="search">
+                <div class="form-group">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" >
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </li>
           </ul>
-
-          <form class="form-inline" action="index.html" method="post">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" >
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form class="form-inline">
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>
-          <div class="nav justify-content-end">
-            <form class="form-inline" action="index.html" method="post">
-              <a class="btn btn-primary" href="#" role="button">Sign In</a>
-              <a class="btn btn-primary" href="#" role="button">Sign Up</a>
-            </form>
-          </div>
         </div>
-
     </nav>
 
-    
+
   </body>
 </html>
 
@@ -57,3 +57,10 @@
 <!-- <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle">Last Instractions</a>
 </li> -->
+
+<!-- <link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets\library/bootstrap.min.css">
+<script src="javascripts\library/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="javascripts\library/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="javascripts\library/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script> -->
