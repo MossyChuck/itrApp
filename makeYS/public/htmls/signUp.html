@@ -39,7 +39,15 @@
             <div class="well">
                 <div class="form-group">
                     <label>User name:</label>
-                    <input name="userName" type="text" class="form-control" required ng-model="newUser.name" ng-pattern="textPattern" ng-minlength="5">
+                    <input name="userName" type="text" class="form-control" required ng-model="newUser.username" ng-pattern="textPattern" ng-minlength="5">
+                </div>
+                <div class="form-group">
+                    <label>First name:</label>
+                    <input name="firstName" type="text" class="form-control" required ng-model="newUser.firstName" ng-pattern="textPattern" ng-minlength="5">
+                </div>
+                <div class="form-group">
+                    <label>Last name:</label>
+                    <input name="lastName" type="text" class="form-control" required ng-model="newUser.lastName" ng-pattern="textPattern" ng-minlength="5">
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
@@ -49,19 +57,13 @@
                     <label>Password:</label>
                     <input name="userPassword" type="password" class="form-control" required ng-model="newUser.password" ng-minlength="5">
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input name="agreed" type="checkbox" ng-model="newUser.agreed" required>
-                        I agree to the terms and conditions
-                    </label>
-                </div>
                 <button type="submit" class="btn btn-primary btn-block" ng-disabled="myForm.$invalid">
                     Sign Up
                 </button>
             </div>
 
-            <div class="well">
-                Message: {{message}}
+            <div class="well container" style="font-weight:bold; color:red;">
+                {{message}}
             </div>
         </form>
         
