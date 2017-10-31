@@ -1,9 +1,14 @@
-angular.module("app").controller("signInCtrl",function($scope) {
+angular.module("app").controller("signInCtrl",function($scope,$http) {
     $scope.textPattern = new RegExp('[a-z]');
 
-    $scope.addNewUser = function (userDetails) {
-        $scope.message = $scope.newUser;
+    $scope.login = function (user) {
+        $http.post('/login',user).then(function(responce){
+            $scope.message = responce.data;
+            if(responce.data == "success"){
+                $scope.$emit('changeUrl',{url:'/htmls/main.html',message:'Verification email is send to you.'})
+            }
+        });
     }
 
-    $scope.message = "Ready";
+    $scope.message = "";
 });

@@ -8,6 +8,7 @@ var mysql = require('./database/sqlServer');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 // view engine setup
@@ -21,6 +22,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+var sessionStore = new MySQLStore({
+  host     : '127.0.0.1',
+  user     : 'root',
+  password : '12345',
+  database : 'test_db',
+  schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            id: 'id',
+            data: 'data'
+        }
+    }
+});
+app.use(session({
+  secret : 'KillerIsJim',
+  key: 'sid',
+  cookie:{
+      path: "/",
+      httpOnly: true,
+      maxAge: null
+  },
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use('/', index);
 app.use('/users', users);

@@ -8,5 +8,5 @@ router.get('/', function(req, res, next) {
 
 router.post("/registerUser",require('./registerUser').post);
 router.get('/verify',require('./registerUser').verify);
-
+router.post('/login',require('./login').post);
 module.exports = router;

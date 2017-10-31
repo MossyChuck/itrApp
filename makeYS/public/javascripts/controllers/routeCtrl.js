@@ -7,4 +7,5 @@ angular.module("app").controller("routeCtrl",function($scope){
     $scope.changeUrl = function(url){
         $scope.url = url;
     }
+    
 });
