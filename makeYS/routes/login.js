@@ -10,10 +10,11 @@ exports.post = function(req,res){
           res.end();
         }else{
             findUser = results[0];
-            if(findUser.blocked){
+            if(!findUser.verifyed){
+                res.send("Email is not verifyed");
+            }else if(findUser.blocked){
                 res.send('You have been baned!');
             }else{
-                console.log(crypto.createHmac('sha1',findUser.salt).update(user.password).digest('hex'));
                 if(crypto.createHmac('sha1',findUser.salt).update(user.password).digest('hex') == findUser.hashed_password){
                     req.session.userId = findUser.id;
                     var role = findUser.admin?'admin':'user';

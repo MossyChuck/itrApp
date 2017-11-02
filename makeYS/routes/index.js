@@ -10,4 +10,7 @@ router.get('/', function(req, res, next) {
 router.post("/registerUser",require('./registerUser').post);
 router.get('/verify',require('./registerUser').verify);
 router.post('/login',require('./login').post);
+router.post('/users/getUsers',require('./user').getUsers);
+router.post('/users/deleteUser',require('./user').deleteUser);
+router.post('/users/changeProperty',require('./user').changeProperty);
 module.exports = router;
