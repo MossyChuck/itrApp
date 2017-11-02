@@ -16,7 +16,8 @@ exports.post = function(req,res){
                 console.log(crypto.createHmac('sha1',findUser.salt).update(user.password).digest('hex'));
                 if(crypto.createHmac('sha1',findUser.salt).update(user.password).digest('hex') == findUser.hashed_password){
                     req.session.userId = findUser.id;
-                    res.send('success');
+                    var role = findUser.admin?'admin':'user';
+                    res.send({status:'success', userId : findUser.id, username:findUser.username,role:role});
                     res.end();
                 }else{
                     res.send('Wrong password!');
