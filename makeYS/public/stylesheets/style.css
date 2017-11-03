@@ -3,7 +3,7 @@ a {
 }
 header nav{
   background-color: skyblue;
-  
+
 }
 
 @media (min-width: 48em) {
@@ -168,3 +168,10 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*  none autorised header */
+#headerSetingsNonAutorised, #headerProfileNonAutorised {
+  visibility: hidden;
+}
+
+/*  settings, file settings.html  */
