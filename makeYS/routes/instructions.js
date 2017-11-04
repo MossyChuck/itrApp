@@ -19,3 +19,10 @@ exports.create = function(req,res) {
         }
     });
 }
+exports.getAll = function(req,res){
+    mysql.query('SELECT * FROM instructions;',function(error,results,fields){
+        if(error) throw error;
+        res.send(results);
+        res.end();
+    })
+}
