@@ -13,3 +13,12 @@ CREATE TABLE users(
     admin BOOLEAN DEFAULT FALSE,
     blocked BOOLEAN DEFAULT FALSE
 );
+CREATE TABLE instructions(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
+    created DATE NOT NULL,
+    authorId INT NOT NULL,
+    steps TEXT NOT NULL,
+    comments TEXT NOT NULL,
+    rating TEXT NOT NULL
+);
