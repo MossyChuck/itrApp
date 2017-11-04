@@ -1,0 +1,26 @@
+<div ng-controller="newInstructionCtrl" style="width: 800px;" class="container">
+    <form name="myForm" novalidate class="form-signin">
+            <div class="well">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input name="title" type="text" class="form-control" required ng-model="instruction.title">
+                </div>
+                <div ng-repeat="step in instruction.steps">
+                    <label >Step</label> <button class="btn btn-danger" ng-click="deleteStep(step);">delete</button>
+                    <div class="form-group">
+                        <input name="stepTitle" type="text" class="form-control" ng-model="step.title">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="stepText" cols="85" rows="10" class="form-control" ng-model="step.text"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block" ng-click="addStep();">
+                    Add step
+                </button>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="create();">
+                    Create
+                </button>
+            </div>
+            {{instruction}}
+        </form>
+</div>
