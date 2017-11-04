@@ -1,8 +1,12 @@
 var userModel = {
     getUsers : function($http,property,value){
-        $http.post('/users/getUsers',{property,value}).then(function(responce){
-            console.log(responce.data);
-            return responce.data;
+        return new Promise(function(resolve,reject){
+            $http.post('/users/getUsers',{property,value}).then(function(responce){
+                console.log(responce.data);
+                resolve(responce.data);
+                return responce.data;
+            });
+            
         });
     },
     deleteUserById : function($http,id){
