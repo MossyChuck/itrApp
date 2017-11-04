@@ -2,20 +2,20 @@ var mysql = require('../database/sqlServer');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 
-exports.post = function(req,res,next){
+exports.post = function(req,res,next) {
   var user = req.body;
   var salt = Math.random()+'';
   var hashedPassword = crypto.createHmac('sha1',salt).update(user.password).digest('hex');
   console.log('SELECT * FROM users WHERE username="'+user.username+'";');
-  mysql.query('SELECT * FROM users WHERE username="'+user.username+'";',function(error,results,fields){
+  mysql.query('SELECT * FROM users WHERE username="'+user.username+'";',function(error,results,fields) {
     if(error) throw error;
-    if (results.length !== 0){
+    if (results.length !== 0) {
       res.send("This username is already used!");
       res.end();
     }else{
-      mysql.query('SELECT * FROM users WHERE email="'+user.email.replace('@','%40')+'";',function(error,results,fields){
+      mysql.query('SELECT * FROM users WHERE email="'+user.email.replace('@','%40')+'";',function(error,results,fields) {
         if(error) throw error;
-        if (results.length !== 0){
+        if (results.length !== 0) {
           res.send("This email is already used!");
           res.end();
         }else{
@@ -49,8 +49,8 @@ send = function(email) {
         html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>" 
     }
     console.log(link);
-    transport.sendMail(mailOptions, function(error, response){
-    if(error){
+    transport.sendMail(mailOptions, function(error, response) {
+    if(error) {
         console.log(error);
         //res.end("error");
     }else{
@@ -60,12 +60,12 @@ send = function(email) {
     });
 }
 
-exports.verify = function(req,res){
+exports.verify = function(req,res) {
         if(req.query.id==rand)
         {
             console.log("email is verified");
             //console.log(req.query.to);
-            mysql.query("UPDATE users SET verifyed = true WHERE email='"+req.query.email.replace('@','%40')+"';",function(error){
+            mysql.query("UPDATE users SET verifyed = true WHERE email='"+req.query.email.replace('@','%40')+"';",function(error) {
                 if(error) throw error;
                 res.render('index');
             });
