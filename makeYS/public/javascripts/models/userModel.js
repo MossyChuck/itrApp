@@ -4,6 +4,10 @@ var userModel = {
         return new Promise(function (resolve) {
             $http.post('/users/getUsers').then(function (responce) {
                 userModel.data = responce.data;
+                userModel.data.forEach(function(element) {
+                    element.email = element.email.replace('%40', '@');
+                    element.created = new Date(element.created);
+                }, this);
                 resolve(responce.data);
                 return responce.data;
             });

@@ -7,7 +7,8 @@ var instructionModel = {
                 instructionModel.data.forEach(function(element) {
                     element.steps = JSON.parse(element.steps);
                     element.tags = JSON.parse(element.tags);
-                    element.created = element.created.substring(0,10);
+                    element.created = new Date(element.created);
+                    //element.created = element.created.toISOString().substring(0,10);
                 }, this);
                 resolve(responce.data);
             });

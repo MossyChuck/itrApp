@@ -1,8 +1,5 @@
 angular.module("app").controller("routeCtrl",function($scope, $http) {
     userModel.load($http).then(function() {
-        userModel.data.forEach(function(element) {
-            element.email = element.email.replace('%40', '@');
-        }, this);
         $scope.$digest();
     });
     instructionModel.load($http,$scope).then(function(responce) {

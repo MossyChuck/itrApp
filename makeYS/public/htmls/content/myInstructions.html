@@ -26,7 +26,7 @@
             <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse">
                 <td>{{instruction.id}}</td>
                 <td>{{instruction.title}}</td>
-                <td>{{instruction.created}}</td>
+                <td>{{instruction.created | date: 'yyyy-MM-dd'}}</td>
             </tr>
         </tbody>
     </table>
