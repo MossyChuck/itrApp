@@ -1,7 +1,11 @@
 angular.module('app').controller('newInstructionCtrl', function ($scope, $http) {
     $scope.instruction = {};
     $scope.instruction.steps = [{}];
+    $scope.instruction.comments = [];
+    $scope.instruction.tags = [];
+    $scope.instruction.rating = [];
     $scope.instruction.authorId = sessionStorage.userId;
+    $scope.categories = ['Electronic', 'House', 'Cooking', 'Leisure', 'Programming','Auto'];
     $scope.addStep = function () {
         $scope.instruction.steps.push({});
     };

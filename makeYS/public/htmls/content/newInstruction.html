@@ -5,6 +5,7 @@
                     <label>Title:</label>
                     <input name="title" type="text" class="form-control" required ng-model="instruction.title">
                 </div>
+                <select ng-model="instruction.category" ng-options="category for category in categories"></select>
                 <div ng-repeat="step in instruction.steps">
                     <label >Step</label> <button class="btn btn-danger" ng-click="deleteStep(step);">delete</button>
                     <div class="form-group">

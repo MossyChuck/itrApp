@@ -5,7 +5,7 @@
 
       <div class="blog-post" ng-repeat="instruction in data">
         <h2 class="blog-post-title"><a href="" ng-click="openInstruction(instruction.id);">{{instruction.title}}</a></h2>
-        <p class="blog-post-meta">{{instruction.created.substring(0,10)}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a></p>
+        <p class="blog-post-meta">{{instruction.created.substring(0,10)}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a> {{instruction.category}}</p>
         <div>
           <h3>{{instruction.steps[0].title}}</h3>
           <p>{{instruction.steps[0].text}}</p>

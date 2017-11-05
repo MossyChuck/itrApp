@@ -22,3 +22,5 @@ CREATE TABLE instructions(
     comments TEXT NOT NULL,
     rating TEXT NOT NULL
 );
+ALTER TABLE instructions ADD tags VARCHAR(1000);
+ALTER TABLE instructions ADD category VARCHAR(100);

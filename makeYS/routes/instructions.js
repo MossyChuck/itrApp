@@ -7,8 +7,8 @@ exports.create = function(req,res) {
             res.send('Instruction with this title already exist!');
             res.end();
         }else{
-            var sql = 'INSERT INTO instructions(title,created,authorId,steps,comments,rating) VALUES(?,?,?,?,?,?);';
-            var insert = [instruction.title,new Date().toISOString().substring(0,10),instruction.authorId,JSON.stringify(instruction.steps),'[]','[]'];
+            var sql = 'INSERT INTO instructions(title,created,authorId,steps,comments,rating,category,tags) VALUES(?,?,?,?,?,?,?,?);';
+            var insert = [instruction.title,new Date().toISOString().substring(0,10),instruction.authorId,JSON.stringify(instruction.steps),JSON.stringify(instruction.comments),JSON.stringify(instruction.rating),JSON.stringify(instruction.category),JSON.stringify(instruction.tags)];
             var query = mysql.format(sql,insert);
             mysql.query(query,function(error) {
                 if(error) throw error;
