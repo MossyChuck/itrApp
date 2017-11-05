@@ -4,13 +4,11 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     $scope.$on('changeContentUrl', function(event,args) {
         $scope.contentUrl = args.url;
         $scope.message = args.message;
-        //$scope.$digest();
     });
     $scope.$on('changeHeaderUrl', function(event,args) {
         $scope.headerUrl = args.url;
     });
     $scope.logout = function() {
-        //sessionStorage =null;
         delete sessionStorage.role;
         delete sessionStorage.userId;
         $scope.headerUrl = "/htmls/headers/nonAutorized.html";

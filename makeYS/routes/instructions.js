@@ -10,9 +10,8 @@ exports.create = function(req,res) {
             var sql = 'INSERT INTO instructions(title,created,authorId,steps,comments,rating) VALUES(?,?,?,?,?,?);';
             var insert = [instruction.title,new Date().toISOString().substring(0,10),instruction.authorId,JSON.stringify(instruction.steps),'[]','[]'];
             var query = mysql.format(sql,insert);
-            console.log(query);
             mysql.query(query,function(error) {
-                if(error) console.log(error);
+                if(error) throw error;
                 res.send('gooood');
                 res.end();
             })

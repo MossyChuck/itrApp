@@ -3,7 +3,6 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //res.data.status = 'none';
   res.render('index');
 });
 
@@ -15,5 +14,4 @@ router.post('/users/deleteUser',require('./user').deleteUser);
 router.post('/users/changeProperty',require('./user').changeProperty);
 router.post('/createInstruction',require('./instructions').create);
 router.get('/instruction/getAll',require('./instructions').getAll);
-router.get('/profile',require('./profile').get);
 module.exports = router;
