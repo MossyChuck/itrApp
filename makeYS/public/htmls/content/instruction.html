@@ -1,0 +1,19 @@
+
+<div class="container blog-main" ng-controller="instructionCtrl">
+
+              <div class="blog-post">
+                <h2 class="blog-post-title"><a >{{instruction.title}}</a></h2>
+                <p class="blog-post-meta">{{instruction.created.substring(0,10)}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a></p>
+                <div class="container">
+                    <ul>
+                        <li ng-repeat="step in instruction.steps"><a href="#step{{$index}}">{{step.title}}</a></li>
+                    </ul>
+                </div>
+                <div ng-repeat="step in instruction.steps" id="step{{$index}}">
+                  <h3>{{step.title}}</h3>
+                  <p>{{step.text}}</p>
+                </div>
+                
+              </div>
+              
+</div>
