@@ -6,9 +6,10 @@
                     <input name="title" type="text" class="form-control" required ng-model="instruction.title">
                 </div>
                 <select ng-model="instruction.category" ng-options="category for category in categories"></select>
-                <label >Step</label>
+                <br>
+                <label >Tags</label>
                 <div class="form-group">
-                    <input name="stepTitle" type="text" class="form-control" ng-model="tags">
+                    <input name="tags" type="text" class="form-control" ng-model="tags">
                 </div>
                 
                 <div ng-repeat="step in instruction.steps">

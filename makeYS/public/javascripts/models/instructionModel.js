@@ -4,6 +4,11 @@ var instructionModel = {
         return new Promise(function (resolve) {
             $http.get('/instruction/getAll').then(function (responce) {
                 instructionModel.data = responce.data;
+                instructionModel.data.forEach(function(element) {
+                    element.steps = JSON.parse(element.steps);
+                    element.tags = JSON.parse(element.tags);
+                    element.created = element.created.substring(0,10);
+                }, this);
                 resolve(responce.data);
             });
         });

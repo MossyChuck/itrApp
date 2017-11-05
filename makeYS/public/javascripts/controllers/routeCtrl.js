@@ -7,11 +7,6 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     });
     instructionModel.load($http,$scope).then(function(responce) {
         $scope.data = responce;
-        $scope.data.forEach(function(element) {
-            element.steps = JSON.parse(element.steps);
-            element.tags = JSON.parse(element.tags);
-            element.created = element.created.substring(0,10);
-        }, this);
         $scope.$digest();
     });
     $scope.contentUrl = "/htmls/content/main.html";
