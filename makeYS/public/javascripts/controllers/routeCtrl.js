@@ -10,6 +10,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         $scope.data.forEach(function(element) {
             element.steps = JSON.parse(element.steps);
             element.tags = JSON.parse(element.tags);
+            element.created = element.created.substring(0,10);
         }, this);
         $scope.$digest();
     });

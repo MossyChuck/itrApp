@@ -1,0 +1,18 @@
+<div ng-controller="myInstructionsCtrl">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="instruction in instructions">
+                <td>{{instruction.id}}</td>
+                <td>{{instruction.title}}</td>
+                <td>{{instruction.created}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

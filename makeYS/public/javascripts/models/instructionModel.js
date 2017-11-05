@@ -14,7 +14,16 @@ var instructionModel = {
             if (element.id == id){
                 temp = element;
             }
-        },this);
+        }, this);
+        return temp;
+    },
+    getInstructionsByAuthor: function(id){
+        var temp = [];
+        instructionModel.data.forEach(function(element){
+            if(element.authorId == id){
+                temp.push(element);
+            }
+        }, this);
         return temp;
     }
 };
