@@ -9,6 +9,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         $scope.data = responce;
         $scope.data.forEach(function(element) {
             element.steps = JSON.parse(element.steps);
+            element.tags = JSON.parse(element.tags);
         }, this);
         $scope.$digest();
     });
