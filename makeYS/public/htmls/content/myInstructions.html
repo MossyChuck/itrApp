@@ -2,13 +2,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>id</th>
-                <th>title</th>
-                <th>created</th>
+                <th>
+                    <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse;">
+                    id
+                    <span ng-show="sortType == 'id'" class="fa fa-caret-down"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse;">
+                        title
+                        <span ng-show="sortType == 'title';" class="fa fa-caret-down"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'created'; sortReverse = !sortReverse;">
+                        created
+                        <span ng-show="sortType == 'created'" class="fa fa-caret-down"></span>
+                    </a></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="instruction in instructions">
+            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse">
                 <td>{{instruction.id}}</td>
                 <td>{{instruction.title}}</td>
                 <td>{{instruction.created}}</td>
