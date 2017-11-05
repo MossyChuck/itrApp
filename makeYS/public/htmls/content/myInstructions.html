@@ -1,4 +1,5 @@
 <div ng-controller="myInstructionsCtrl">
+    <br>
     <table class="table">
         <thead>
             <tr>
@@ -19,14 +20,23 @@
                     <a href="#" ng-click="sortType = 'created'; sortReverse = !sortReverse;">
                         created
                         <span ng-show="sortType == 'created' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'created' && sortReverse" class="fa fa-caret-up"></span>                    </a></th>
+                        <span ng-show="sortType == 'created' && sortReverse" class="fa fa-caret-up"></span> 
+                   </a>
+                </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse">
+            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse" ng-click="select()" style="height:70px;">
                 <td>{{instruction.id}}</td>
-                <td>{{instruction.title}}</td>
+                <td><a href="" ng-click="openInstruction(instruction.id)">{{instruction.title}}</a></td>
                 <td>{{instruction.created | date: 'yyyy-MM-dd'}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;"> 
+                        <button type="button" class="btn btn-default" ng-show="selected == $index">Edit</button>
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="deleteInstruction(instruction.id);">Delete</button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -31,5 +31,10 @@ var instructionModel = {
             }
         }, this);
         return temp;
+    },
+    deleteInstructionById: function ($http,id){
+        $http.post('/instruction/delete', { id:id }).then(function(){
+            instructionModel.load($http);
+        });
     }
 };

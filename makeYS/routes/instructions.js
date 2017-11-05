@@ -23,5 +23,11 @@ exports.getAll = function(req,res) {
         if(error) throw error;
         res.send(results);
         res.end();
-    })
+    });
+}
+exports.delete = function(req,res){
+    mysql.query('DELETE FROM instructions WHERE id='+req.body.id+';',function(error,results,fields){
+        if(error) throw error;
+        res.end();
+    });
 }
