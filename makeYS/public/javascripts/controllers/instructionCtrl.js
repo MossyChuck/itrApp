@@ -1,4 +1,4 @@
-angular.module('app').controller('instructionCtrl',function($scope){
+angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
     $scope.profile = function(id) {
         localStorage.profileId = id;
@@ -6,5 +6,16 @@ angular.module('app').controller('instructionCtrl',function($scope){
     }
     $scope.getUsername = function(id) {
         return userModel.getUserById(id).username;
+    }
+    $scope.isAuthor = function(id){
+        if(id==sessionStorage.userId){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    $scope.deleteInstruction = function(id){
+        instructionModel.deleteInstructionById($http,id);
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html'});
     }
 });

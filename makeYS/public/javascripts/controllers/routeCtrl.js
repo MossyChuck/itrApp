@@ -2,8 +2,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     userModel.load($http).then(function() {
         $scope.$digest();
     });
-    instructionModel.load($http,$scope).then(function(responce) {
-        $scope.data = responce;
+    instructionModel.load($http,$scope).then(function() {
         $scope.$digest();
     });
     $scope.contentUrl = "/htmls/content/main.html";

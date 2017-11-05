@@ -1,4 +1,5 @@
 angular.module('app').controller('mainCtrl', function($scope, $http) {
+    $scope.data = instructionModel.data;
     $scope.getUsername = function(id) {
         return userModel.getUserById(id).username;
     }
