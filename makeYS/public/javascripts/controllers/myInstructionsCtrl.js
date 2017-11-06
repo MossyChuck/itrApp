@@ -18,6 +18,10 @@ angular.module('app').controller('myInstructionsCtrl',function($scope,$http){
             }
         }, this);
     }
+    $scope.editInstruction = function(id){
+        localStorage.instructionId = id;
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/editInstruction.html'});
+    }
     $scope.openInstruction = function(id){
         localStorage.instructionId = id;
         $scope.$emit('changeContentUrl',{ url: '/htmls/content/instruction.html'})

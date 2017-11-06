@@ -33,7 +33,7 @@
                 <td>{{instruction.created | date: 'yyyy-MM-dd'}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;"> 
-                        <button type="button" class="btn btn-default" ng-show="selected == $index">Edit</button>
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="editInstruction(instruction.id);">Edit</button>
                         <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="deleteInstruction(instruction.id);">Delete</button>
                     </div>
                 </td>

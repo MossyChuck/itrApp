@@ -5,7 +5,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
     $scope.instruction.tags = [];
     $scope.instruction.rating = [];
     $scope.instruction.authorId = sessionStorage.userId;
-    $scope.categories = ['Electronic', 'House', 'Cooking', 'Leisure', 'Programming','Auto'];
+    $scope.categories = instructionModel.categories;
     $scope.addStep = function () {
         $scope.instruction.steps.push({});
     };

@@ -1,5 +1,6 @@
 var instructionModel = {
     data: [],
+    categories: ['Electronic', 'House', 'Cooking', 'Leisure', 'Programming','Auto'],
     load: function ($http) {
         return new Promise(function (resolve) {
             $http.get('/instruction/getAll').then(function (responce) {
@@ -7,6 +8,7 @@ var instructionModel = {
                 instructionModel.data.forEach(function(element) {
                     element.steps = JSON.parse(element.steps);
                     element.tags = JSON.parse(element.tags);
+                    element.category = JSON.parse(element.category);
                     element.created = new Date(element.created);
                     //element.created = element.created.toISOString().substring(0,10);
                 }, this);

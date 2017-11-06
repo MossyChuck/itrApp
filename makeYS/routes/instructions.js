@@ -31,3 +31,14 @@ exports.delete = function(req,res){
         res.end();
     });
 }
+
+exports.change = function(req,res){
+    var instruction = req.body.instruction;
+    var sql = 'UPDATE instructions SET title=?,tags=?,steps=?,category=? WHERE id=?;';
+    var insert = [instruction.title,JSON.stringify(instruction.tags),JSON.stringify(instruction.steps),JSON.stringify(instruction.category),instruction.id];
+    var query = mysql.format(sql,insert);
+    mysql.query(query,function(error){
+        if (error) throw error;
+        res.end();
+    });
+}

@@ -5,7 +5,7 @@
                 <h2 class="blog-post-title">
                   {{instruction.title}}
                   <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;"> 
-                    <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)">Edit</button>
+                    <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="editInstruction(instruction.id);">Edit</button>
                     <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="deleteInstruction(instruction.id);">Delete</button>
                   </div>
                 </h2>

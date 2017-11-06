@@ -15,4 +15,5 @@ router.post('/users/changeProperty',require('./user').changeProperty);
 router.post('/createInstruction',require('./instructions').create);
 router.get('/instruction/getAll',require('./instructions').getAll);
 router.post('/instruction/delete',require('./instructions').delete);
+router.post('/instruction/change',require('./instructions').change);
 module.exports = router;

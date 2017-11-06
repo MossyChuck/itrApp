@@ -14,6 +14,10 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             return false;
         }
     }
+    $scope.editInstruction = function(id){
+        localStorage.instructionId = id;
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/editInstruction.html'});
+    }
     $scope.deleteInstruction = function(id){
         instructionModel.deleteInstructionById($http,id);
         $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html'});
