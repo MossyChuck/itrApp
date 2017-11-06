@@ -1,5 +1,5 @@
 angular.module('app').controller('signUpCtrl', function ($scope, $http) {
-    $scope.textPattern = new RegExp('[a-z]');
+    $scope.textPattern = new RegExp('^[a-zA-Z]+$');
     $scope.addNewUser = function () {
         $http.post('/registerUser', $scope.newUser).then(function (responce) {
             $scope.message = responce.data;
