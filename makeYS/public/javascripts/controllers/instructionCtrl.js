@@ -4,18 +4,20 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
     $scope.instruction.steps.forEach(function(step) {
         step.img = [];
-        step.imagesLinks.forEach(function(element) {
-            dbx.sharingGetSharedLinkFile({url: element})
-              .then(function(data) {
-                console.log(data);
-                step.img.push(URL.createObjectURL(data.fileBlob));
-                element = URL.createObjectURL(data.fileBlob);
-                $scope.$digest();
-              })
-              .catch(function(error) {
-                console.error(error);
-              });
-        }, this);
+        if(step.imagesLinks) {
+            step.imagesLinks.forEach(function(element) {
+                dbx.sharingGetSharedLinkFile({url: element})
+                .then(function(data) {
+                    console.log(data);
+                    step.img.push(URL.createObjectURL(data.fileBlob));
+                    element = URL.createObjectURL(data.fileBlob);
+                    $scope.$digest();
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+            }, this);
+        }
     }, this);
     $scope.profile = function(id) {
         localStorage.profileId = id;
@@ -25,7 +27,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         return userModel.getUserById(id).username;
     }
     $scope.isAuthor = function(id){
-        if(id==sessionStorage.userId){
+        if(id==sessionStorage.userId || sessionStorage.role == 'admin'){
             return true;
         } else{
             return false;

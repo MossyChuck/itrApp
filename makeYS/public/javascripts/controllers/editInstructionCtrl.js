@@ -19,7 +19,7 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
     };
     $scope.saveInstruction = function (){
         if($scope.instruction.tags.length!=0){
-            $scope.instruction.tags = $scope.tags.split(',');            
+            $scope.instruction.tags = $scope.instruction.tags.split(',');            
         }
         $http.post('/instruction/change',{instruction:$scope.instruction}).then(function (){
             instructionModel.load($http);
