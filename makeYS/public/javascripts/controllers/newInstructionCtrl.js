@@ -26,6 +26,13 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
             makeDropZones(); 
         });
     };
+    $scope.deleteImages = function(){
+        files[this.$index] = [];
+        $scope.instruction.steps[this.$index].imagesLinks = [];
+        console.log(files);
+        $($('.dropZone')[this.$index]).text('');
+        $($('.dropZone')[this.$index]).removeClass('drop');
+    }
     $scope.create = function () {
         if($scope.instruction.tags.length!=0){
             $scope.instruction.tags = $scope.tags.split(',');            
@@ -91,16 +98,6 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
                       .then(function(response){
                           console.log(response);
                           $scope.instruction.steps[parseInt(event.path[0].id)].imagesLinks.push(response.url);
-                        //   dbx.sharingGetSharedLinkFile({url: response.url})
-                        //   .then(function(data) {
-                        //     console.log(data);
-                        //     $scope.instruction.steps[parseInt(event.path[0].id)].imagesLinks.push(URL.createObjectURL(data.fileBlob));
-                        //     $scope.$digest();
-                        //   })
-                        //   .catch(function(error) {
-                        //     console.error(error);
-                        //   });
-      
                       })
                       .catch(function(error){
                           console.error(error);

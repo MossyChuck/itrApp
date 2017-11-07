@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <textarea name="stepText" cols="85" rows="10" class="form-control" ng-model="step.text"></textarea>
                     </div>
-                    <label >Images</label>
+                    <label >Images</label> <button class="btn btn-danger" ng-click="deleteImages(step);">clear</button>
                     <div class="dropZone" id="{{$index}}"></div>
                 </div>
                 <button class="btn btn-primary btn-block" ng-click="addStep();">
@@ -32,5 +32,4 @@
                 </button>
             </div>
         </form>
-        <img src="{{imageUrl}}" alt="fuck">
 </div>
