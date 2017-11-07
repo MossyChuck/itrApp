@@ -13,7 +13,7 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/myProfile.html')";>My profile</a>
-            <a class="dropdown-item" href="#">Edit</a>
+            <a class="dropdown-item" href="#" ng-click="changeContentUrl('htmls/content/adminPage.html')" ng-show="isAdmin();">Admin page</a>
             <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/myInstructions.html')">My instructions</a>
             <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/newInstruction.html')">New instruction</a>
           </div>
