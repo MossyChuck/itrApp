@@ -3,6 +3,8 @@ angular.module('app').controller('myInstructionsCtrl',function($scope,$http){
     $scope.sortType = 'id';
     $scope.sortReverse = false;
     $scope.selected;
+    $scope.limitValue = 3;
+    $scope.instructionsPerPage = 3;
     $scope.select = function(event){
         if($scope.selected == this.$index){
             $scope.selected = undefined;

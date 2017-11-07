@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse" ng-click="select()" style="height:70px;">
+            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse | limitTo : limitValue" ng-click="select()" style="height:70px;">
                 <td>{{instruction.id}}</td>
                 <td><a href="" ng-click="openInstruction(instruction.id)">{{instruction.title}}</a></td>
                 <td>{{instruction.created | date: 'yyyy-MM-dd'}}</td>
@@ -40,5 +40,8 @@
             </tr>
         </tbody>
     </table>
-    
+    <nav class="blog-pagination">
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue + instructionsPerPage;" ng-disabled="limitValue>=instructions.length">More</button>
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue - instructionsPerPage;" ng-disabled="limitValue==instructionsPerPage">Less</button>
+    </nav>
 </div>
