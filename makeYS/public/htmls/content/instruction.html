@@ -18,6 +18,7 @@
                 <div ng-repeat="step in instruction.steps" id="step{{$index}}">
                   <h3>{{step.title}}</h3>
                   <p>{{step.text}}</p>
+                  <img ng-repeat="link in step.img" src="{{link}}" style="max-width:600px;" alt="FUCK">
                 </div>
                 
               </div>
