@@ -1,7 +1,25 @@
 angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
     $scope.newComment = {};
-    
+
+    $scope.isLiked = function (index) {
+        for(var i = 0; i<$scope.instruction.comments[index].likes.length; i++){
+            if($scope.instruction.comments[index].likes[i].userId == sessionStorage.userId){
+                return true;
+            }
+        }
+        return false;
+    }
+    $scope.likeComment = function (index) {
+        for(var i = 0; i<$scope.instruction.comments[index].likes.length; i++){
+            if($scope.instruction.comments[index].likes[i].userId == sessionStorage.userId){
+                $scope.instruction.comments[index].likes.splice(i,1);
+                return;
+            }
+        }
+        $scope.instruction.comments[index].likes.push({ userId: sessionStorage.userId });
+    }
+
     var ACCESS_TOKEN = 'S1LRa3tqsKAAAAAAAAAALSGxx-stPFb7RVfUZiccJCyAL1ect5RuXWtBUjSNjtEH';
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
     $scope.instruction.steps.forEach(function (step) {

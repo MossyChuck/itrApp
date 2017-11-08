@@ -37,7 +37,7 @@
                               <p>{{comment.text}}</p>
                               <div class="stats">
                                   <a href="#" class="btn btn-default stat-item">
-                                      <i class="fa fa-thumbs-up icon"></i>{{comment.likes.length}}
+                                      <i class="fa icon" ng-class="{true:'fa-thumbs-up',false:'fa-thumbs-o-up'}[isLiked($index)]" ng-click="likeComment($index)"></i>{{comment.likes.length}}
                                   </a>
                               </div>
                           </div>
