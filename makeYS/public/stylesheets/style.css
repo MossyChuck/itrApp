@@ -170,22 +170,22 @@ h6, .h6 {
 }
 
 /*  none autorised header */
-#headerSetingsNonAutorised, #headerProfileNonAutorised {
+#headerProfileNonAutorised {
   visibility: hidden;
 }
 
-.dropZone {    
+.dropZone {
   color: #555;
   font-size: 18px;
-  text-align: center;    
-  
+  text-align: center;
+
   width: auto;
   padding: 50px 0;
   margin: 10px auto;
-  
+
   background: #eee;
   border: 1px solid #ccc;
-  
+
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
