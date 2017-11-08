@@ -9,6 +9,7 @@ var instructionModel = {
                     element.steps = JSON.parse(element.steps);
                     element.tags = JSON.parse(element.tags);
                     element.category = JSON.parse(element.category);
+                    element.comments = JSON.parse(element.comments);
                     element.created = new Date(element.created);
                     //element.created = element.created.toISOString().substring(0,10);
                 }, this);
@@ -38,5 +39,12 @@ var instructionModel = {
         $http.post('/instruction/delete', { id:id }).then(function(){
             instructionModel.load($http);
         });
+    },
+    changeProperty: function($http,id,property,value){
+        $http.post('/instruction/changeProperty', {id: id, property: property, value: value}).then(function (){
+
+        });
+
+
     }
 };

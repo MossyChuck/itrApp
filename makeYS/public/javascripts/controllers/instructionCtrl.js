@@ -1,8 +1,10 @@
 angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
+    $scope.newComment = {};
+    
     var ACCESS_TOKEN = 'S1LRa3tqsKAAAAAAAAAALSGxx-stPFb7RVfUZiccJCyAL1ect5RuXWtBUjSNjtEH';
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    $scope.instruction.steps.forEach(function(step) {
+    $scope.instruction.steps.forEach(function (step) {
         step.img = [];
         if(step.imagesLinks) {
             step.imagesLinks.forEach(function(element) {
@@ -31,6 +33,21 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             }, this);
         }
     }, this);
+    $scope.addComment = function () {
+        $scope.newComment.authorId = sessionStorage.userId;
+        $scope.newComment.likes = [];
+        $scope.instruction.comments.push($scope.newComment);
+        instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
+        instructionModel.load($http);
+    }
+    $scope.deleteComment = function (index) {
+        $scope.instruction.comments.splice(index,1);
+        instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
+        instructionModel.load($http);
+    }
+    $scope.isAutorized = function () {
+        return sessionStorage.length ? true : false;
+    }
     $scope.profile = function (id) {
         localStorage.profileId = id;
         $scope.$emit('changeContentUrl', { url: '/htmls/content/profile.html'});

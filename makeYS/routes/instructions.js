@@ -42,3 +42,17 @@ exports.change = function(req,res){
         res.end();
     });
 }
+
+exports.changeProperty = function(req,res) {
+    var property = req.body.property;
+    var value = req.body.value;
+    var id = req.body.id;
+    var sql = 'UPDATE instructions SET '+property+'=? WHERE id=?;';
+    var insert = [value,id];
+    var query = mysql.format(sql,insert);
+    console.log(query);
+    mysql.query(query,function(error,results,fields) {
+        if(error) throw error;
+        res.end();
+    });
+}
