@@ -1,26 +1,30 @@
 
 <div class="container blog-main" ng-controller="instructionCtrl">
-
-              <div class="blog-post">
-                <h2 class="blog-post-title">
+  
+              <div class="blog-post" id="pdf">
+                <h2 class="blog-post-title title">
                   {{instruction.title}}
-                  <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;"> 
+                  <div class="btn-group pdf-ignore" role="group" aria-label="Basic example" style="width:150px;"> 
                     <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="editInstruction(instruction.id);">Edit</button>
                     <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="deleteInstruction(instruction.id);">Delete</button>
+                    <button type="button" class="btn btn-default" ng-click="generatePDF();">PDF</button>
                   </div>
                 </h2>
-                <p class="blog-post-meta">{{instruction.created.substring(0,10)}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a> Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span></p>
-                <div class="container">
+                <p class="blog-post-meta meta"><a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a>, Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span></p>
+                <div class="container pdf-ignore contents">
                     <ul>
                         <li ng-repeat="step in instruction.steps"><a href="#step{{$index}}">{{step.title}}</a></li>
                     </ul>
                 </div>
-                <div ng-repeat="step in instruction.steps" id="step{{$index}}">
+                <div ng-repeat="step in instruction.steps" id="step{{$index}}" class="step">
                   <h3>{{step.title}}</h3>
                   <p>{{step.text}}</p>
-                  <img ng-repeat="link in step.img" src="{{link}}" style="max-width:600px;" alt="FUCK">
+                                   
+                  <img ng-repeat="link in step.img" src="{{link}}" style="max-width:600px; max-height:600px; margin:10px;" alt="FUCK" id="image">
+                  
                 </div>
                 
               </div>
+              <div id="test"></div>
               
 </div>
