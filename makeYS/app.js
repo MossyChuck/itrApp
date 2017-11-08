@@ -73,6 +73,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(80);
+//app.listen(80);
+
+var server = require('http').createServer(app);
+server.listen(80);  
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function(socket){
+  console.log(socket);
+  socket.on('comment', function (data) {
+    socket.broadcast.emit('comment'+data.instructionId,data);
+  });
+  socket.on('deleteComment', function (data) {
+    socket.broadcast.emit('deleteComment'+data.instructionId,data.index);
+  });
+});
 
 module.exports = app;

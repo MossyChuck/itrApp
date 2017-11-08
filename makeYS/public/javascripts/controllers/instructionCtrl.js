@@ -1,7 +1,19 @@
 angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
     $scope.newComment = {};
-
+    var socket = io.connect('http://127.0.0.1');
+    socket.on('comment'+$scope.instruction.id,function(data){
+        if(data.instructionId == localStorage.instructionId){
+            var comment = {
+                text: data.text,
+                authorId: data.authorId
+            };
+            $scope.addComment(comment, true);
+        }
+    });
+    socket.on('deleteComment'+$scope.instruction.id,function(data){
+        $scope.deleteComment(data,true);
+    })
     $scope.isLiked = function (index) {
         for(var i = 0; i<$scope.instruction.comments[index].likes.length; i++){
             if($scope.instruction.comments[index].likes[i].userId == sessionStorage.userId){
@@ -51,17 +63,28 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             }, this);
         }
     }, this);
-    $scope.addComment = function () {
-        $scope.newComment.authorId = sessionStorage.userId;
-        $scope.newComment.likes = [];
-        $scope.instruction.comments.push($scope.newComment);
+    $scope.addComment = function (comment, fromSocket) {
+        if(!comment.authorId){
+            comment.authorId = sessionStorage.userId;
+        }
+        comment.likes = [];
+        $scope.instruction.comments.push(comment);
         instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
         instructionModel.load($http);
+        comment.instructionId = $scope.instruction.id;
+        if(!fromSocket){
+            socket.emit('comment',comment);
+            $scope.newComment = {}
+        }
+        
     }
-    $scope.deleteComment = function (index) {
+    $scope.deleteComment = function (index,fromSocket) {
         $scope.instruction.comments.splice(index,1);
         instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
         instructionModel.load($http);
+        if(!fromSocket){
+            socket.emit('deleteComment',{ instructionId: $scope.instruction.id, index: index });
+        }
     }
     $scope.isAutorized = function () {
         return sessionStorage.length ? true : false;
