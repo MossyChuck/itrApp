@@ -23,6 +23,10 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         return false;
     }
     $scope.likeComment = function (index) {
+        if(sessionStorage.length == 0){
+            console.log('access denied');
+            return;
+        }
         for(var i = 0; i<$scope.instruction.comments[index].likes.length; i++){
             if($scope.instruction.comments[index].likes[i].userId == sessionStorage.userId){
                 $scope.instruction.comments[index].likes.splice(i,1);
