@@ -233,3 +233,16 @@ margin-left:2px;
 border-right-color:#ddd;
 border-width:8px;
 }
+footer {
+  background: #7e7e7e;
+  	color: #dbdbdb;
+  	font-size: 11px;
+}
+footer .container {
+  height: 110px;
+  padding: 10px 0;
+}
+footer a {
+      text-decoration: none;
+      color: #f9f7f7;
+    };
