@@ -209,40 +209,48 @@ h6, .h6 {
   padding:0px;
 }
 .panel {
-position:relative;
+  position:relative;
 }
 .panel>.panel-heading:after,.panel>.panel-heading:before{
-position:absolute;
-top:11px;left:-16px;
-right:100%;
-width:0;
-height:0;
-display:block;
-content:" ";
-border-color:transparent;
-border-style:solid solid outset;
-pointer-events:none;
+  position:absolute;
+  top:11px;
+  left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
 }
 .panel>.panel-heading:after{
-border-width:7px;
-border-right-color:#f7f7f7;
-margin-top:1px;
-margin-left:2px;
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
 }
 .panel>.panel-heading:before{
-border-right-color:#ddd;
-border-width:8px;
+  border-right-color:#ddd;
+  border-width:8px;
 }
 footer {
-  background: #7e7e7e;
-  	color: #dbdbdb;
-  	font-size: 11px;
+  background: #c6c2c2;
+  color: #faf7f7;
+  font-size: 11px;
 }
 footer .container {
   height: 110px;
   padding: 10px 0;
 }
 footer a {
-      text-decoration: none;
-      color: #f9f7f7;
-    };
+  text-decoration: none;
+  color: #f9f7f7;
+}
+
+#warningChangingPass {
+  color: red;
+}
+.successChanged {
+  color: rgb(49, 223, 64);
+}
