@@ -1,21 +1,24 @@
 
 function changeToDarkTheme() {
-    $(#styleOfSite).attr(href, "/stylesheets/styleDark.css")
+    $('#styleOfSite').attr('href', "/stylesheets/styleDark.css");
+    $('header nav').attr('class', 'navbar navbar-expand-lg navbar-dark bg-dark');
+    $("button[type='submit']").attr('class', 'btn btn-secondary');
+
 }
 
 function checkLanguage() {
-  if ($('#selectLanguage').val === 'Русский')
+  if ($("#selectLanguage").val() === 'Русский') {
     changeToRusLanguage();
+  }
 }
 
 function checkTheme() {
-    if ($('#selectTheme').val === 'Dark')
+    if ($('#selectTheme').val() === 'Dark')
       changeToDarkTheme();
-
 }
 
 function applyPersonalitySettings(){
-  checkLanguage();
+  //checkLanguage();
   checkTheme();
 }
 
@@ -25,16 +28,18 @@ function changePersonality() {
 }
 
 function checkNewPassword(){
-  if ($('#changePassword').val() != $('#confirmNewPassword').val())
+  if ($('#changePassword').val() !== $('#confirmNewPassword').val()) {
     $('#passwordChanging').append("<p id='warningChangingPass'>Passwords are not the same</p>");
-  else
+  }
+  else {
     $('#warningChangingPass').remove();
+    $('#passwordChanging').append("<p class='successChanged'>Password has successfully changed</p>")
+  }
 }
 
 function savePassword() {
   checkNewPassword();
   //SaveNewPassword();
-  $('#passwordChanging').append("<p class='successChanged'>Password has successfully changed</p>")
 }
 
 function saveMail() {

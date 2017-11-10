@@ -235,8 +235,8 @@ h6, .h6 {
   border-width:8px;
 }
 footer {
-  background: #c6c2c2;
-  color: #faf7f7;
+  background-color: #e6e6e6;
+  color: #787575;
   font-size: 11px;
 }
 footer .container {
@@ -245,7 +245,7 @@ footer .container {
 }
 footer a {
   text-decoration: none;
-  color: #f9f7f7;
+  color: #181717;
 }
 
 #warningChangingPass {
