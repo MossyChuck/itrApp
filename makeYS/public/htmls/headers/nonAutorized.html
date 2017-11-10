@@ -24,9 +24,9 @@
       <li class="nav-item">
         <form class="navbar-form form-inline" role="search">
           <div class="form-group">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" ng-model="searchQuery">
           </div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" ng-click="search()">Search</button>
         </form>
       </li>
     </ul>
