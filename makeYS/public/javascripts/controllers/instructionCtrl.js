@@ -15,9 +15,13 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         for(var i = 0; i<$scope.instruction.rating.length;i++){
             rating += $scope.instruction.rating[i].rating;
         }
+        if(!rating) return rating;        
         return rating/$scope.instruction.rating.length;
     }
     $scope.changeRating = function (rating){
+        if(sessionStorage.length == 0) {
+            return;
+        }
         rating++;
         for(var i = 0; i<rating; i++){
             $scope.stars[i] = true;
