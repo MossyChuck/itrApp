@@ -2,6 +2,45 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
     $scope.newComment = {};
     var socket = io.connect('http://127.0.0.1');
+    $scope.stars = [false,false,false,false,false];
+    for(var i = 0; i<$scope.instruction.rating.length; i++){
+        if($scope.instruction.rating[i].user == sessionStorage.userId){
+            for(var j = 0; j<$scope.instruction.rating[i].rating; j++){
+                $scope.stars[j] = true;
+            }
+        }
+    }
+    $scope.averageRating = function () {
+        var rating = 0;
+        for(var i = 0; i<$scope.instruction.rating.length;i++){
+            rating += $scope.instruction.rating[i].rating;
+        }
+        return rating/$scope.instruction.rating.length;
+    }
+    $scope.changeRating = function (rating){
+        rating++;
+        for(var i = 0; i<rating; i++){
+            $scope.stars[i] = true;
+        }
+        for(var i = rating; i<5;i++){
+            $scope.stars[i] = false;
+        }
+        for(var i = 0;i<$scope.instruction.rating.length; i++){
+            if($scope.instruction.rating[i].user == sessionStorage.userId){
+                $scope.instruction.rating[i].rating = rating;
+                instructionModel.changeProperty($http, $scope.instruction.id, 'rating', JSON.stringify($scope.instruction.rating));
+                instructionModel.load($http);
+                return;
+            }
+        }
+        var rObj = {
+            user: sessionStorage.userId,
+            rating: rating
+        }
+        $scope.instruction.rating.push(rObj);
+        instructionModel.changeProperty($http, $scope.instruction.id, 'rating', JSON.stringify($scope.instruction.rating));
+        instructionModel.load($http);
+    }
     socket.on('comment'+$scope.instruction.id,function(data){
         if(data.instructionId == localStorage.instructionId){
             var comment = {
@@ -34,6 +73,9 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             }
         }
         $scope.instruction.comments[index].likes.push({ userId: sessionStorage.userId });
+    }
+    $scope.isRated = function () {
+        return true;
     }
 
     var ACCESS_TOKEN = 'S1LRa3tqsKAAAAAAAAAALSGxx-stPFb7RVfUZiccJCyAL1ect5RuXWtBUjSNjtEH';
