@@ -9,7 +9,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         return sessionStorage.role=='admin' ? true : false;
     }
     $scope.contentUrl = "/htmls/content/main.html";
-    $scope.headerUrl = sessionStorage.length > 0?"/htmls/headers/autorizedUser.html" : "/htmls/headers/nonAutorized.html";
+    $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/autorizedUser.html" : "/htmls/headers/nonAutorized.html";
     $scope.$on('changeContentUrl', function (event,args) {
         $scope.contentUrl = args.url;
         $scope.message = args.message;

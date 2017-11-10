@@ -19,7 +19,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         return rating/$scope.instruction.rating.length;
     }
     $scope.changeRating = function (rating){
-        if(sessionStorage.length == 0) {
+        if(sessionStorage.userId == undefined) {
             return;
         }
         rating++;
@@ -66,7 +66,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         return false;
     }
     $scope.likeComment = function (index) {
-        if(sessionStorage.length == 0){
+        if(sessionStorage.userId == undefined){
             console.log('access denied');
             return;
         }
@@ -137,7 +137,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         }
     }
     $scope.isAutorized = function () {
-        return sessionStorage.length ? true : false;
+        return sessionStorage.userId == undefined ? false : true;
     }
     $scope.profile = function (id) {
         localStorage.profileId = id;

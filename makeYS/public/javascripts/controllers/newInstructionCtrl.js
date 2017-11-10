@@ -41,7 +41,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
         //$scope.instruction.files = files;
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
             $scope.message = responce.data;
-            instructionModel.load($http);
+            //instructionModel.load($http);
             $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html' });
         });
     };

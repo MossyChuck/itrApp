@@ -2,6 +2,7 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     $scope.data = instructionModel.data;
     $scope.limitValue = 3;
     $scope.instructionsPerPage = 3;
+    $scope.sortType = 'id';
     $scope.getUsername = function (id) {
         return userModel.getUserById(id).username;
     }
@@ -27,5 +28,13 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
             }
         }
         return 0;
+    }
+    $scope.ratingSort = function (value){
+        console.log($scope.sortType);
+        return $scope.averageRating(value.id);
+    }
+    $scope.setSortType = function (type){
+        console.log(type);
+        $scope.sortType = type;
     }
 });

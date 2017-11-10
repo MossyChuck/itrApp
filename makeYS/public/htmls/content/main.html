@@ -2,8 +2,9 @@
   <div class="row">
 
     <div class="col-sm-8 blog-main">
-
-      <div class="blog-post" ng-repeat="instruction in data | orderBy: id : true | limitTo : limitValue">
+      <button class="btn btn-default" ng-click="setSortType('id')">Fresh</button>
+      <button class="btn btn-default" ng-click="setSortType(ratingSort)">Most rated</button>
+      <div class="blog-post" ng-repeat="instruction in data | orderBy: sortType : true | limitTo : limitValue">
         <h2 class="blog-post-title"><a href="" ng-click="openInstruction(instruction.id);">{{instruction.title}}</a></h2>
         <p class="blog-post-meta">{{instruction.created|date:'yyyy-MM-dd'}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a> Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>
           Rating: {{averageRating(instruction.id)}}
