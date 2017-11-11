@@ -52,10 +52,9 @@ body {
 .wrapper {
   position: relative;
   min-height: 100%;
+  padding-bottom: 120px;
 }
-main {
-  margin-bottom: 110px;
-}
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
