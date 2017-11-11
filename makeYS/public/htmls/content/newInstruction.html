@@ -12,9 +12,11 @@
                 <div class="form-group">
                     <input name="tags" type="text" class="form-control" ng-model="tags">
                 </div>
-                
+
                 <div ng-repeat="step in instruction.steps">
+                  <div class="form-group">
                     <label >Step</label> <button class="btn btn-danger" ng-click="deleteStep(step);">delete</button>
+                  </div>
                     <div class="form-group">
                         <input name="stepTitle" type="text" class="form-control" ng-model="step.title">
                     </div>
