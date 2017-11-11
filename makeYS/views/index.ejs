@@ -14,7 +14,6 @@
     <link href="/stylesheets/library/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/library/font-awesome.min.css" rel="stylesheet">
     <script src="/javascripts/library/bootstrap.min.js"></script>
-    <link href="/stylesheets/styleLight.css" rel="stylesheet" id="styleOfSite">
     <script src="/javascripts/library/angular.min.js"></script>
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/models/userModel.js"></script>
@@ -35,6 +34,7 @@
     <script src="/javascripts/controllers/searchResultsCtrl.js"></script>    
 	</head>
 	<body ng-controller="routeCtrl">
+    <link href="{{styleUrl}}" rel="stylesheet" >
 		<header ng-include="headerUrl">
     </header>
 

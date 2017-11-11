@@ -2,10 +2,11 @@ a {
   text-decoration: none;
 }
 header nav{
-  background-color: skyblue;
-
+  background-color: #f9f9f9;
 }
-
+.fa-circle{
+  margin: 15px;
+}
 @media (min-width: 48em) {
   html {
     font-size: 18px;

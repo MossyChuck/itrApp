@@ -1,9 +1,35 @@
 a {
   text-decoration: none;
+  color: #cc5555;
 }
 header nav{
-  background-color: rgb(50, 49, 49);
-
+  background-color: #292929;
+}
+hr{
+  border-color: #fff;
+}
+.fa-circle{
+  margin: 15px;
+}
+textarea{
+  background-color: #555555!important;
+  color: #fff!important;
+}
+input{
+  background-color: #555555!important;
+  color: #fff!important;
+}
+option{
+  background-color: #555555!important;
+  color: #fff!important;
+}
+select{
+  background-color: #555555!important;
+  color: #fff!important;
+}
+.btn{
+  background-color: #555555!important;
+  color: #fff!important;
 }
 
 @media (min-width: 48em) {
@@ -14,8 +40,8 @@ header nav{
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #ac1616;
-  background-color: rgb(47, 45, 45);
+  color: #fff;
+  background-color: #333333;
 }
 
 h1, .h1,
@@ -26,7 +52,7 @@ h5, .h5,
 h6, .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  color: #dd1c1c;
+  color: #fff;
 }
 
 
@@ -49,7 +75,10 @@ h6, .h6 {
   -webkit-box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
           box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
 }
-
+.navbar-toggler-icon{
+  background-color: #555555;
+  
+}
 /* Nav links */
 .nav-link {
   position: relative;
@@ -184,16 +213,16 @@ h6, .h6 {
   padding: 50px 0;
   margin: 10px auto;
 
-  background: #eee;
+  background: #555555;
   border: 1px solid #ccc;
-
+  color: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
 .dropZone.hover {
-  background: #ddd;
+  background: #333333;
   border-color: #aaa;
 }
 
@@ -203,7 +232,7 @@ h6, .h6 {
 }
 
 .dropZone.drop {
-  background: #ffaaaa;
+  background: #aaffaa;
   border-color: #ff0000;
 }
 .thumbnail {
@@ -237,7 +266,7 @@ h6, .h6 {
 }
 footer {
   background-color: #403e3e;
-  color: #b50c0c;
+  color: #fff;
   font-size: 11px;
 }
 footer .container {
@@ -246,7 +275,7 @@ footer .container {
 }
 footer a {
   text-decoration: none;
-  color: #ff0000;
+  color: #fff;
 }
 
 #warningChangingPass {

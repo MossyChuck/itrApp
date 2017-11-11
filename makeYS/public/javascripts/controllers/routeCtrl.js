@@ -1,4 +1,27 @@
 angular.module("app").controller("routeCtrl",function($scope, $http) {
+    var styles = {
+        light: '/stylesheets/styleLight.css',
+        dark: '/stylesheets/styleDark.css'
+    }
+    var currentTheme = sessionStorage.colorTheme || 'light';
+    $scope.styleUrl = styles[currentTheme];
+    changeHeaderClass();
+    $scope.changeTheme = function () {
+        currentTheme = currentTheme == 'light' ? 'dark' : 'light';
+        $scope.styleUrl = styles[currentTheme];
+        sessionStorage.colorTheme = currentTheme;
+        changeHeaderClass();
+        //$scope.$digest();
+    }
+    function changeHeaderClass () {
+        if (currentTheme == 'light') {
+            $($('nav')[0]).removeClass('navbar-dark');
+            $($('nav')[0]).addClass('navbar-light');
+        }else{
+            $($('nav')[0]).removeClass('navbar-light');
+            $($('nav')[0]).addClass('navbar-dark');
+        }
+    }
     userModel.load($http).then(function() {
         $scope.$digest();
     });
