@@ -11,7 +11,7 @@
       </div>
       <button type="submit" class="btn btn-primary" onclick="changePersonality()">Save</button>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-controller="newPasswordCtrl">
       <h4>Changing password:</h4>
       <form id="passwordChanging">
         <div class="form-group">
@@ -28,7 +28,7 @@
             Check me output
           </label>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="savePassword()">Save</button>
+        <button type="submit" class="btn btn-primary" ng-click="savePassword()">Save</button>
       </form>
     </div>
     <div class="form-group">
