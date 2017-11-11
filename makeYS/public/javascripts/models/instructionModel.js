@@ -12,7 +12,6 @@ var instructionModel = {
                     element.comments = JSON.parse(element.comments);
                     element.created = new Date(element.created);
                     element.rating = JSON.parse(element.rating);
-                    //element.created = element.created.toISOString().substring(0,10);
                 }, this);
                 resolve(responce.data);
             });

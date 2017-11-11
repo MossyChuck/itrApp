@@ -37,12 +37,9 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
         if($scope.instruction.tags.length!=0){
             $scope.instruction.tags = $scope.tags.split(',');            
         }
-        
-        //$scope.instruction.files = files;
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
-            $scope.message = responce.data;
-            //instructionModel.load($http);
-            $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html' });
+        $scope.message = responce.data;
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html' });
         });
     };
     function makeDropZones(){
@@ -51,11 +48,9 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
             dropZone.text('Не поддерживается браузером!');
             dropZone.addClass('error');
         }
-        console.log(files);
         
         for(var i = 0;i<dropZone.length;i++){
             dropZone[i].ondragover = function(event) {
-                //console.log(event.path[0]);
                 $(event.path[0]).addClass('hover');
                 return false;
             };
@@ -67,8 +62,6 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
                 event.preventDefault();
                 $(event.path[0]).text('');
                 var file = event.dataTransfer.files[0];
-                //console.log(event.dataTransfer.files);
-                console.log(event);
                 if (file.size > maxFileSize) {
                     $(event.path[0]).text('File is bigger than 1MB');
                     $(event.path[0]).addClass('error');
@@ -83,8 +76,6 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
                     return false;
                 }
                 
-                //console.log($(event.path[0]).text());
-                //$(event.path[0]).text($(event.path[0]).text()+file.name+'\n');
                 files[parseInt(event.path[0].id)].push(file);
                 var text = '';
                 for(var j = 0; j<files[parseInt(event.path[0].id)].length;j++){

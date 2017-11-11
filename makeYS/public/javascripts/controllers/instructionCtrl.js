@@ -89,9 +89,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         if(step.imagesLinks) {
             step.imagesLinks.forEach(function(element) {
                 dbx.sharingGetSharedLinkFile({url: element})
-                .then(function(data) {
-                    //var file = new File([data.fileBlob],data.name,{type: 'image/jpeg', lastModified: Date.now()});
-                    
+                .then(function(data) {                    
                     var reader = new window.FileReader();
                     var extention = data.name.substring(data.name.lastIndexOf('.')+1);
                     reader.readAsDataURL(data.fileBlob); 
@@ -101,10 +99,6 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
                                    $scope.$digest();
                                    
                      }
-                     
-                    //step.img.push(URL.createObjectURL(file));
-                    //step.img.push(URL.createObjectURL(data.fileBlob));
-                    //element = URL.createObjectURL(data.fileBlob);
                     
                 })
                 .catch(function(error) {

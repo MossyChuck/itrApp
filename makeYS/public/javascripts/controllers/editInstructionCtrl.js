@@ -48,7 +48,6 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
         for(var i = 0;i<dropZone.length;i++){
             $(dropZone[i]).text($scope.instruction.steps[i].imagesLinks.length+' images attached');
             dropZone[i].ondragover = function(event) {
-                //console.log(event.path[0]);
                 $(event.path[0]).addClass('hover');
                 return false;
             };
@@ -60,7 +59,6 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
                 event.preventDefault();
                 $(event.path[0]).text('');
                 var file = event.dataTransfer.files[0];
-                //console.log(event.dataTransfer.files);
                 console.log(event);
                 if (file.size > maxFileSize) {
                     $(event.path[0]).text('File is bigger than 1MB');
@@ -76,8 +74,6 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
                     return false;
                 }
                 
-                //console.log($(event.path[0]).text());
-                //$(event.path[0]).text($(event.path[0]).text()+file.name+'\n');
                 files[parseInt(event.path[0].id)].push(file);
                 var text = '';
                 for(var j = 0; j<files[parseInt(event.path[0].id)].length;j++){

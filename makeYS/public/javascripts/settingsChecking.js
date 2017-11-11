@@ -10,7 +10,6 @@ function checkNewPassword(){
 
 function savePassword() {
   checkNewPassword();
-  //SaveNewPassword();
 }
 
 function saveMail() {

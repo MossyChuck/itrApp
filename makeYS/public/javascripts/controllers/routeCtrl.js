@@ -11,7 +11,6 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         $scope.styleUrl = styles[currentTheme];
         sessionStorage.colorTheme = currentTheme;
         changeHeaderClass();
-        //$scope.$digest();
     }
     function changeHeaderClass () {
         if (currentTheme == 'light') {
