@@ -1,6 +1,7 @@
 var instructionModel = {
     data: [],
     categories: ['Electronic', 'House', 'Cooking', 'Leisure', 'Programming','Auto'],
+    tags: [],
     load: function ($http) {
         return new Promise(function (resolve) {
             $http.get('/instruction/getAll').then(function (responce) {
@@ -12,6 +13,23 @@ var instructionModel = {
                     element.comments = JSON.parse(element.comments);
                     element.created = new Date(element.created);
                     element.rating = JSON.parse(element.rating);
+                    for(var i = 0; i < element.tags.length;i++){
+                        var contains = false;
+                        for(var j = 0; j < instructionModel.tags.length; j++){
+                            if(instructionModel.tags[j].tag == element.tags[i]){
+                                instructionModel.tags[j].amount++;
+                                contains = true;
+                            }
+                        }
+                        if(!contains){
+                            instructionModel.tags.push({tag:element.tags[i], amount: 1});
+                        }
+                    }
+                    instructionModel.tags.sort(function(a,b){
+                        if(a.amount > b.amount) return -1;
+                        if(a.amount < b.amount) return 1;
+                        return 0;
+                    });
                 }, this);
                 resolve(responce.data);
             });

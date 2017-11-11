@@ -3,6 +3,8 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     $scope.limitValue = 3;
     $scope.instructionsPerPage = 3;
     $scope.sortType = 'id';
+    $scope.tags = instructionModel.tags;
+    console.log(instructionModel.tags);
     $scope.getUsername = function (id) {
         return userModel.getUserById(id).username;
     }
@@ -36,5 +38,20 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     $scope.setSortType = function (type){
         console.log(type);
         $scope.sortType = type;
+    }
+    $scope.searchByTag = function (index) {
+        var results = [];
+        for(var i = 0; i < instructionModel.data.length; i++) {
+            var tags = instructionModel.data[i].tags;
+            for(var j = 0; j < tags.length; j++) {
+                if(tags[j] == instructionModel.tags[index].tag) {
+                    results.push(instructionModel.data[i].id);
+                }
+            }
+
+        }
+        console.log(results);
+        localStorage.searchResults = results;
+        $scope.$emit('changeContentUrl', { url: 'htmls/content/searchResults.html'});
     }
 });
