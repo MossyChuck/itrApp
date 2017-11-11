@@ -46,11 +46,11 @@ var instructionModel = {
     },
     getInstructionsByAuthor: function(id){
         var temp = [];
-        instructionModel.data.forEach(function(element){
-            if(element.authorId == id){
-                temp.push(element);
+        for(var i = 0; i<instructionModel.data.length; i++){
+            if(instructionModel.data[i].authorId == id){
+                temp.push(instructionModel.data[i]);
             }
-        }, this);
+        }
         return temp;
     },
     deleteInstructionById: function ($http,id){

@@ -27,8 +27,10 @@ exports.changeProperty = function(req,res) {
     var property = req.body.property;
     var value = req.body.value;
     var id = req.body.id;
-    
-    mysql.query('UPDATE users SET ' + property + '="'+value+'" WHERE id='+id+';',function(error,results,fields) {
+    var sql = 'UPDATE users SET '+property+'=? WHERE id=?;';
+    var insert = [value,id];
+    var query = mysql.format(sql,insert);
+    mysql.query(query,function(error,results,fields) {
         if(error) throw error;
         res.end();
     });
