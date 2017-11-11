@@ -31,38 +31,37 @@
     <script src="/javascripts/controllers/editInstructionCtrl.js"></script>
     <script src="/javascripts/controllers/adminPageCtrl.js"></script>
 		<script src="javascripts/settingsChecking.js"></script>
-    <script src="/javascripts/controllers/searchResultsCtrl.js"></script>    
+    <script src="/javascripts/controllers/searchResultsCtrl.js"></script>
 	</head>
 	<body ng-controller="routeCtrl">
     <link href="{{styleUrl}}" rel="stylesheet" >
-		<header ng-include="headerUrl">
-    </header>
-
-
-    <main >
-      <div ng-include="contentUrl"></div>
-    </main>
-
-    <footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 social">
-						<h3>Social networks</h3>
-						<a href="http://twitter.com/"><img src="images/twitter.png" alt="Twitter"></a>
-						<a href="http://facebook.com/"><img src="images/facebook.png" alt="Facebook"></a>
-						<a href="http://vk.com/"><img src="images/vk.png" alt="VK"></a>
-					</div>
-					<div class="col-md-6 footer-logo">
-						<p>
-							This site made by Pavel Moseychuk and Dmitriy Razderischenko for
-							<a href="http://itransition.by/">Itransition</a>
-						</p>
-						<p>
-							Copyright © 2017 ItsApp.
-						</p>
+		<div class="wrapper">
+			<header ng-include="headerUrl">
+	    </header>
+	    <main >
+	      <div ng-include="contentUrl"></div>
+	    </main>
+	    <footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 social">
+							<h3>Social networks</h3>
+							<a href="http://twitter.com/"><img src="images/twitter.png" alt="Twitter"></a>
+							<a href="http://facebook.com/"><img src="images/facebook.png" alt="Facebook"></a>
+							<a href="http://vk.com/"><img src="images/vk.png" alt="VK"></a>
+						</div>
+						<div class="col-md-6 footer-logo">
+							<p>
+								This site made by Pavel Moseychuk and Dmitriy Razderischenko for
+								<a href="http://itransition.by/">Itransition</a>
+							</p>
+							<p>
+								Copyright © 2017 ItsApp.
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 	</body>
 </html>
