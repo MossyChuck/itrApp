@@ -24,3 +24,4 @@ CREATE TABLE instructions(
 );
 ALTER TABLE instructions ADD tags VARCHAR(1000);
 ALTER TABLE instructions ADD category VARCHAR(100);
+ALTER TABLE users ADD medals TEXT;

@@ -48,7 +48,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         $scope.contentUrl = url;
     }
     $scope.search = function () {
-        if(this.searchQuery == ''){
+        if(this.searchQuery == '' || !this.searchQuery){
             return;
         }
         this.searchQuery.toLowerCase();
