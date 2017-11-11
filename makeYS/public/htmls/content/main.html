@@ -26,7 +26,7 @@
     <div class="col-sm-3 offset-sm-1 blog-sidebar">
       <div>
         <h3>Most popular tags</h3>
-        <span ng-repeat="tag in tags"><a href="#" ng-click="searchByTag($index)">{{tag.tag}}</a>, </span>
+        <span ng-repeat="tag in tags | limitTo: 20"><a href="#" ng-click="searchByTag($index)">{{tag.tag}}</a>, </span>
       </div>
         
     </div><!-- /.blog-sidebar -->
