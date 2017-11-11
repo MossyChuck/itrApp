@@ -10,6 +10,9 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             }
         }
     }
+    $scope.getAuthor = function (id) {
+        return userModel.getUserById(id);
+    }
     $scope.averageRating = function () {
         var rating = 0;
         for(var i = 0; i<$scope.instruction.rating.length;i++){

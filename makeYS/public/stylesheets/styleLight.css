@@ -69,6 +69,9 @@ h6, .h6 {
   color: #777777;
   background-color: transparent;
 }
+img{
+  margin-right: 3px;
+}
 
 /* Active state gets a caret at the bottom */
 .nav-link.active {

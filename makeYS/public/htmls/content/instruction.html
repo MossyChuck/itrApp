@@ -10,7 +10,7 @@
                     <button type="button" class="btn btn-default" ng-click="generatePDF();">PDF</button>
                   </div>
                 </h2>
-                <p class="blog-post-meta meta"><a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a>, Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>,
+                <p class="blog-post-meta meta"><a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}} <img ng-repeat="img in getAuthor(instruction.authorId).medals" src="{{img.src}}" alt="medal" title="{{img.title}}"></a>, Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>,
                   <i class="fa icon" ng-class="{true:'fa-star',false:'fa-star-o'}[star]" ng-click="changeRating($index)" ng-repeat="star in stars track by $index"></i>{{averageRating()}}
                 </p>
                 <div class="container pdf-ignore contents">

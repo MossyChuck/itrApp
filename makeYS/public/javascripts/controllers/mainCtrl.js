@@ -8,6 +8,9 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     $scope.getUsername = function (id) {
         return userModel.getUserById(id).username;
     }
+    $scope.getAuthor = function (id) {
+        return userModel.getUserById(id);
+    }
     $scope.profile = function (id) {
         localStorage.profileId = id;
         $scope.$emit('changeContentUrl', { url: '/htmls/content/profile.html'});

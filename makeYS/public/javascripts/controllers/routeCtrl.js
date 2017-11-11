@@ -3,6 +3,12 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         light: '/stylesheets/styleLight.css',
         dark: '/stylesheets/styleDark.css'
     }
+    instructionModel.load($http,$scope).then(function () {
+        $scope.$digest();
+        userModel.load($http).then(function() {
+            $scope.$digest();
+        });
+    });
     var currentTheme = sessionStorage.colorTheme || 'light';
     $scope.styleUrl = styles[currentTheme];
     changeHeaderClass();
@@ -21,12 +27,8 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
             $($('nav')[0]).addClass('navbar-dark');
         }
     }
-    userModel.load($http).then(function() {
-        $scope.$digest();
-    });
-    instructionModel.load($http,$scope).then(function () {
-        $scope.$digest();
-    });
+    
+    
     $scope.isAdmin = function(){
         return sessionStorage.role=='admin' ? true : false;
     }

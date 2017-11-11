@@ -7,7 +7,7 @@
         <button class="btn btn-default" ng-click="setSortType(ratingSort)">Most rated</button>
         <div class="blog-post" ng-repeat="instruction in data | orderBy: sortType : true | limitTo : limitValue">
           <h2 class="blog-post-title"><a href="" ng-click="openInstruction(instruction.id);">{{instruction.title}}</a></h2>
-          <p class="blog-post-meta">{{instruction.created|date:'yyyy-MM-dd'}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}}</a> Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>
+          <p class="blog-post-meta">{{instruction.created|date:'yyyy-MM-dd'}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}} <img ng-repeat="img in getAuthor(instruction.authorId).medals" src="{{img.src}}" alt="medal" title="{{img.title}}"></a> Category {{instruction.category}}, tags: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>
             Rating: {{averageRating(instruction.id)}}
           </p>
           <div>
