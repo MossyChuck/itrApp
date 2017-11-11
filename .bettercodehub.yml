@@ -1,5 +1,0 @@
-exclude:
-- /makeYS/node_modules/.*
-component_depth: 1
-languages:
-- javascript
