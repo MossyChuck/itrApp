@@ -1,10 +1,10 @@
 
 <div class="container blog-main" ng-controller="instructionCtrl">
-  
+
               <div class="blog-post" id="pdf">
                 <h2 class="blog-post-title title">
                   {{instruction.title}}
-                  <div class="btn-group pdf-ignore" role="group" aria-label="Basic example" style="width:150px;"> 
+                  <div class="btn-group pdf-ignore" role="group" aria-label="Basic example" style="width:150px;">
                     <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="editInstruction(instruction.id);">Edit</button>
                     <button type="button" class="btn btn-default" ng-show="isAuthor(instruction.authorId)" ng-click="deleteInstruction(instruction.id);">Delete</button>
                     <button type="button" class="btn btn-default" ng-click="generatePDF();">PDF</button>
@@ -21,11 +21,11 @@
                 <div ng-repeat="step in instruction.steps" id="step{{$index}}" class="step">
                   <h3>{{step.title}}</h3>
                   <p>{{step.text}}</p>
-                                   
+
                   <img ng-repeat="link in step.img" src="{{link}}" style="max-width:600px; max-height:600px; margin:10px;" alt="FUCK" id="image">
-                  
+
                 </div>
-                
+
               </div>
               <div>
                 <h2>Comments: </h2>
@@ -34,8 +34,8 @@
                       <div class="panel panel-white post panel-shadow" ng-repeat="comment in instruction.comments track by $index">
                           <div class="post-heading">
                             <a href="" ng-click="profile(comment.authorId)"><b>{{getUsername(comment.authorId)}}</b></a> <button class="btn btn-danger" ng-click="deleteComment($index)" ng-show="isAuthor(comment.authorId)">Delete</button>
-                          </div> 
-                          <div class="post-description"> 
+                          </div>
+                          <div class="post-description">
                               <p>{{comment.text}}</p>
                               <div class="stats">
                                   <a href="#" class="btn btn-default stat-item">
@@ -45,15 +45,17 @@
                           </div>
                           <hr>
                       </div>
-                      <div class="widget-area no-padding blank" ng-show="isAutorized()"> 
+                      <div class="widget-area no-padding blank" ng-show="isAutorized()">
                         <div class="status-upload">
                           <form>
                             <textarea ng-model="newComment.text" rows="5" cols="60"  ></textarea>
-                            <button type="submit" class="btn btn-success green" ng-click="addComment(newComment)" ><i class="fa fa-share"></i> Comment</button>
+                            <div class="form-group">
+                              <button type="submit" class="btn btn-success green" ng-click="addComment(newComment)" ><i class="fa fa-share"></i> Comment</button>
+                            </div>
                           </form>
                         </div><!-- Status Upload  -->
                       </div><!-- Widget Area -->
                   </div>
               </div>
-              
+
 </div>
