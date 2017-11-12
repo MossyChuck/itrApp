@@ -1,0 +1,40 @@
+<div ng-controller="editInstructionCtrl" style="width: 800px;" class="container">
+    <form name="myForm" novalidate class="form-signin">
+            <div class="well">
+                <div class="form-group">
+                    <label>Заголовок:</label>
+                    <input name="title" type="text" class="form-control" required ng-model="instruction.title">
+                </div>
+                <label >Категория</label>
+                <select ng-model="instruction.category" ng-options="category for category in categories"></select>
+                <br>
+                <label >Теги</label>
+                <div class="form-group">
+                    <input name="tags" type="text" class="form-control" ng-model="instruction.tags">
+                </div>
+
+                <div ng-repeat="step in instruction.steps">
+                  <div class="form-group">
+                    <label >Шаг</label> <button class="btn btn-danger" ng-click="deleteStep(step);">удалить</button>
+                  </div>
+                  <div class="form-group">
+                    <input name="stepTitle" type="text" class="form-control" ng-model="step.title">
+                  </div>
+                  <div class="form-group">
+                    <textarea name="stepText" cols="85" rows="10" class="form-control" ng-model="step.text"></textarea>
+                  </div>
+                  <label >Изображения</label> <button class="btn btn-danger" ng-click="deleteImages(step);">очистить</button>
+                  <div class="dropZone" id="{{$index}}"></div>
+                </div>
+                <button class="btn btn-primary btn-block" ng-click="addStep();">
+                  Добавить шаг
+                </button>
+                <button class="btn btn-primary btn-block" ng-click="saveInstruction();">
+                  Сохранить
+                </button>
+                <button class="btn btn-primary btn-block" ng-click="cancel();">
+                  Отмена
+                </button>
+            </div>
+        </form>
+</div>

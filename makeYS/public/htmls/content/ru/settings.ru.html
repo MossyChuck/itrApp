@@ -1,38 +1,37 @@
 <div class=" d-flex align-items-center">
   <div class="container col-md-6">
     <div class="form-group">
-      <h4>Personality:</h4>
+      <h4>Персонализация:</h4>
       <div class="form-group">
-        <label for="selectLanguage">Select language</label>
+        <label for="selectLanguage">Выбрать язык</label>
         <select class="form-control" id="selectLanguage">
           <option>English</option>
           <option>Русский</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary" onclick="changePersonality()">Save</button>
+      <button type="submit" class="btn btn-primary" onclick="changePersonality()">Сохранить</button>
     </div>
     <div class="form-group" ng-controller="newPasswordCtrl">
-      <h4>Changing password:</h4>
+      <h4>Изменение пароля:</h4>
       <form id="passwordChanging">
         <div class="form-group">
-          <label for="changePassword">Enter your new password</label>
+          <label for="changePassword">Введите ваш новый пароль</label>
           <input type="password" class="form-control" id="changePassword" placeholder="Enter new password" ng-model="newPassword">
         </div>
         <div class="form-group">
-          <label for="confirmNewPassword">Enter your new again password</label>
+          <label for="confirmNewPassword">Введите ваш новый пароль снова</label>
           <input type="password" class="form-control" id="confirmNewPassword" placeholder="Repeat your new password">
-        </div>
-        <button type="submit" class="btn btn-primary" ng-click="savePassword()">Save</button>
+        <button type="submit" class="btn btn-primary" ng-click="savePassword()">Сохранить</button>
       </form>
     </div>
     <div class="form-group">
-      <h4>Changing Email</h4>
+      <h4>Сменить почту</h4>
       <form>
-        <label for="changeEmail">Enter yuor new Email</label>
+        <label for="changeEmail">Введите вашу новую почту</label>
         <div class="form-group">
           <input type="email" class="form-control" id="changeEmail" placeholder="Enter new Email">
         </div>
-        <button type="submit" class="btn btn-primary" onclick="saveMail()">Save</button>
+        <button type="submit" class="btn btn-primary" onclick="saveMail()">Сохранить</button>
         <p id="warningChangingMail"></p>
       </form>
     </div>

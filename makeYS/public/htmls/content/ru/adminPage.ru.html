@@ -1,0 +1,64 @@
+<div ng-controller="adminPageCtrl">
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse;">
+                    id
+                    <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'username'; sortReverse = !sortReverse;">
+                        имя пользователя
+                        <span ng-show="sortType == 'username' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'username' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse;">
+                        зарегистрирован
+                        <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'admin'; sortReverse = !sortReverse;">
+                        админ
+                        <span ng-show="sortType == 'admin' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'admin' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'blocked'; sortReverse = !sortReverse;">
+                        заблокирован
+                        <span ng-show="sortType == 'blocked' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'blocked' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | orderBy:sortType:sortReverse | limitTo : limitValue" ng-click="select()" style="height:70px;">
+                <td>{{user.id}}</td>
+                <td><a href="" ng-click="openProfile(user.id)">{{user.username}}</a></td>
+                <td>{{user.created | date: 'yyyy-MM-dd'}}</td>
+                <td>{{bool(user.admin)}}</td>
+                <td>{{bool(user.blocked)}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;">
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="changeAdminState(user.id);">{{getAdminButtonText(user.id)}}</button>
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="changeBlockState(user.id);">{{getBlockButtonText(user.id)}}</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <nav class="blog-pagination">
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue + usersPerPage;" ng-disabled="limitValue>=users.length">больше</button>
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue - usersPerPage;" ng-disabled="limitValue==usersPerPage">меньше</button>
+    </nav>
+</div>
