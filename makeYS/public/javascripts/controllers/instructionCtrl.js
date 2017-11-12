@@ -160,6 +160,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
     }
     $scope.generatePDF = function () {
         var draw = kendo.drawing;
+        $('#pdf').css('color','#000');
         draw.drawDOM($('#pdf'), {
             avoidLinks: true,
             paperSize: 'A4',
@@ -171,6 +172,8 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
                 dataURI: data,
                 fileName: $scope.instruction.title+'.pdf'
             });
+            $('#pdf').css('color','#fff');
         });
+        
     }
 });
