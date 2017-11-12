@@ -115,9 +115,11 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             comment.authorId = sessionStorage.userId;
         }
         comment.likes = [];
-        $scope.instruction.comments.push(comment);
-        instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
-        instructionModel.load($http);
+        $scope.instruction.comments.push(comment)
+        if(fromSocket){  
+            instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
+            instructionModel.load($http);
+        }
         comment.instructionId = $scope.instruction.id;
         if(!fromSocket){
             socket.emit('comment',comment);
