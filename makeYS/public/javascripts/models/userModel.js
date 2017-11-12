@@ -54,13 +54,13 @@ var userModel = {
             title: 'Instruction with average rating 4+',
             check: function (user) {
                 var instructions = instructionModel.getInstructionsByAuthor(user.id);
-                var rating = 0;
-                for(var i = 0; i<instructions.length; i++){                                            
+                for(var i = 0; i<instructions.length; i++){    
+                    var rating = 0;                                        
                     for(var j = 0; j < instructions[i].rating.length; j++) {
                         rating+=instructions[i].rating[j].rating;
                     }
                     rating/=instructions[i].rating.length;
-                    if(rating >= 4){
+                    if(rating >= 4.0){
                         return true;
                     }
                 }
@@ -72,13 +72,13 @@ var userModel = {
             title: 'Instruction with average rating 5',
             check: function (user) {
                 var instructions = instructionModel.getInstructionsByAuthor(user.id);
-                var rating = 0;
-                for(var i = 0; i<instructions.length; i++){                                            
+                for(var i = 0; i<instructions.length; i++){  
+                    var rating = 0;                                          
                     for(var j = 0; j < instructions[i].rating.length; j++) {
                         rating+=instructions[i].rating[j].rating;
                     }
                     rating/=instructions[i].rating.length;
-                    if(rating == 5){
+                    if(rating == 5.0){
                         return true;
                     }
                 }
