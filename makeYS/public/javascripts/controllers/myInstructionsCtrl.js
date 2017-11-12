@@ -22,10 +22,10 @@ angular.module('app').controller('myInstructionsCtrl',function($scope,$http){
     }
     $scope.editInstruction = function(id){
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl',{ url: '/htmls/content/editInstruction.html'});
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/en/editInstruction.en.html'});
     }
     $scope.openInstruction = function(id){
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl',{ url: '/htmls/content/instruction.html'})
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/en/instruction.en.html'})
     }
 });

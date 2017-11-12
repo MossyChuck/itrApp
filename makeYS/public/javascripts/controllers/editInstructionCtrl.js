@@ -4,7 +4,7 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
     $scope.instruction.tags = $scope.instruction.tags.toString();
     var files = new Array($scope.instruction.steps.length);
     var dropZone;
-    var maxFileSize = 1000000; 
+    var maxFileSize = 1000000;
     for(var i = 0; i<files.length; i++){
         files[i] = [];
 
@@ -19,16 +19,16 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
     };
     $scope.saveInstruction = function (){
         if($scope.instruction.tags.length!=0){
-            $scope.instruction.tags = $scope.instruction.tags.split(',');            
+            $scope.instruction.tags = $scope.instruction.tags.split(',');
         }
         $http.post('/instruction/change',{instruction:$scope.instruction}).then(function (){
             instructionModel.load($http);
-            $scope.$emit('changeContentUrl', { url: '/htmls/content/instruction.html'});            
+            $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
         });
-        
+
     }
     $scope.cancel = function (){
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/instruction.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
     }
     $scope.deleteImages = function(){
         files[this.$index] = [];
@@ -44,7 +44,7 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
             dropZone.addClass('error');
         }
         console.log(files);
-        
+
         for(var i = 0;i<dropZone.length;i++){
             $(dropZone[i]).text($scope.instruction.steps[i].imagesLinks.length+' images attached');
             dropZone[i].ondragover = function(event) {
@@ -73,7 +73,7 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
                     $(event.path[0]).addClass('error');
                     return false;
                 }
-                
+
                 files[parseInt(event.path[0].id)].push(file);
                 var text = '';
                 for(var j = 0; j<files[parseInt(event.path[0].id)].length;j++){
@@ -95,15 +95,15 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
                 .catch(function(error) {
                   console.error(error);
                 });
-                
+
                 $(event.path[0]).text(text);
                 $(event.path[0]).removeClass('hover');
                 $(event.path[0]).addClass('drop');
-                
+
             };
         }
     }
     $(document).ready(function(){
-       makeDropZones(); 
+       makeDropZones();
     });
 });

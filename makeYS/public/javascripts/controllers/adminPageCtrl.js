@@ -27,8 +27,8 @@ angular.module('app').controller('adminPageCtrl',function ($scope,$http) {
         if(id == sessionStorage.userId) {
             delete sessionStorage.role;
             delete sessionStorage.userId;
-            $scope.$emit('changeHeaderUrl', { url: '/htmls/headers/nonAutorized.html' });
-            $scope.$emit('changeContentUrl', { url: 'htmls/content/main.html' });
+            $scope.$emit('changeHeaderUrl', { url: '/htmls/headers/en/nonAutorized.en.html' });
+            $scope.$emit('changeContentUrl', { url: 'htmls/content/en/main.en.html' });
         }
         $scope.users.forEach(function (element) {
             if(element.id == id){
@@ -41,7 +41,7 @@ angular.module('app').controller('adminPageCtrl',function ($scope,$http) {
         userModel.load($http);
         if(id == sessionStorage.userId){
             sessionStorage.role = 'user';
-            $scope.$emit('changeContentUrl', { url: 'htmls/content/main.html' });
+            $scope.$emit('changeContentUrl', { url: 'htmls/content/en/main.en.html' });
         }
         $scope.users.forEach(function (element) {
             if(element.id == id){
@@ -51,6 +51,6 @@ angular.module('app').controller('adminPageCtrl',function ($scope,$http) {
     }
     $scope.openProfile = function (id) {
         localStorage.profileId = id;
-        $scope.$emit('changeContentUrl',{ url: '/htmls/content/profile.html'})
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/en/profile.en.html'})
     }
 });

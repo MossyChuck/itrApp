@@ -7,7 +7,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
     $scope.instruction.authorId = sessionStorage.userId;
     $scope.categories = instructionModel.categories;
     var dropZone;
-    var maxFileSize = 1000000;    
+    var maxFileSize = 1000000;
     var files = new Array(1);
     files[0] = new Array();
     var ACCESS_TOKEN = 'S1LRa3tqsKAAAAAAAAAALSGxx-stPFb7RVfUZiccJCyAL1ect5RuXWtBUjSNjtEH';
@@ -16,14 +16,14 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
         $scope.instruction.steps.push({imagesLinks: []});
         files.push([]);
         $(document).ready(function(){
-            makeDropZones(); 
+            makeDropZones();
         });
     };
     $scope.deleteStep = function () {
         $scope.instruction.steps.splice(this.$index, 1);
         files.splice($index,1);
         $(document).ready(function(){
-            makeDropZones(); 
+            makeDropZones();
         });
     };
     $scope.deleteImages = function(){
@@ -35,11 +35,11 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
     }
     $scope.create = function () {
         if($scope.instruction.tags.length!=0){
-            $scope.instruction.tags = $scope.tags.split(',');            
+            $scope.instruction.tags = $scope.tags.split(',');
         }
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
         $scope.message = responce.data;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html' });
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/main.en.html' });
         });
     };
     function makeDropZones(){
@@ -48,7 +48,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
             dropZone.text('Не поддерживается браузером!');
             dropZone.addClass('error');
         }
-        
+
         for(var i = 0;i<dropZone.length;i++){
             dropZone[i].ondragover = function(event) {
                 $(event.path[0]).addClass('hover');
@@ -75,7 +75,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
                     $(event.path[0]).addClass('error');
                     return false;
                 }
-                
+
                 files[parseInt(event.path[0].id)].push(file);
                 var text = '';
                 for(var j = 0; j<files[parseInt(event.path[0].id)].length;j++){
@@ -97,16 +97,16 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
                 .catch(function(error) {
                   console.error(error);
                 });
-                
+
                 $(event.path[0]).text(text);
                 $(event.path[0]).removeClass('hover');
                 $(event.path[0]).addClass('drop');
-                
+
             };
         }
     }
     $(document).ready(function(){
-       makeDropZones(); 
+       makeDropZones();
     });
-    
+
 });

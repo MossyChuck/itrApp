@@ -13,23 +13,23 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     }
     $scope.profile = function (id) {
         localStorage.profileId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/profile.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/profile.en.html'});
     }
     $scope.openInstruction = function (id) {
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/instruction.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
     }
     $scope.averageRating = function (id) {
         var rating = 0;
         for(var i = 0; i<$scope.data.length; i++){
             if($scope.data[i].id == id){
-                
+
                 for(var j = 0; j < $scope.data[i].rating.length; j++) {
                     rating+=$scope.data[i].rating[j].rating;
                 }
                 if(!rating) return rating;
                 rating/=$scope.data[i].rating.length;
-                return rating;                
+                return rating;
             }
         }
         return 0;
@@ -55,6 +55,6 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
         }
         console.log(results);
         localStorage.searchResults = results;
-        $scope.$emit('changeContentUrl', { url: 'htmls/content/searchResults.html'});
+        $scope.$emit('changeContentUrl', { url: 'htmls/content/en/searchResults.en.html'});
     }
 });
