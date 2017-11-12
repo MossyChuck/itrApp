@@ -25,7 +25,9 @@ angular.module('app').controller('searchResultsCtrl', function($scope, $http) {
         var rating = 0;
         for(var i = 0; i<$scope.data.length; i++){
             if($scope.data[i].id == id){
-
+                if(!$scope.data[i].rating){
+                    return rating;
+                }
                 for(var j = 0; j < $scope.data[i].rating.length; j++) {
                     rating+=$scope.data[i].rating[j].rating;
                 }

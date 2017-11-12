@@ -53,11 +53,11 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         if(this.searchQuery == '' || !this.searchQuery){
             return;
         }
-        this.searchQuery.toLowerCase();
+        this.searchQuery = this.searchQuery.toLowerCase();
         var results = [];
         for(var i = 0; i < instructionModel.data.length; i++) {
             var instruction = JSON.stringify(instructionModel.data[i]);
-            instruction.toLowerCase();
+            instruction = instruction.toLowerCase();
             if(instruction.indexOf(this.searchQuery) > -1){
                 results.push(instructionModel.data[i].id);
             }
