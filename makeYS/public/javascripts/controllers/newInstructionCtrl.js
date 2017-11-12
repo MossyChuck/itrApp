@@ -34,7 +34,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
         $($('.dropZone')[this.$index]).removeClass('drop');
     }
     $scope.create = function () {
-        if($scope.instruction.tags.length!=0){
+        if($scope.tags.length!=0){
             $scope.instruction.tags = $scope.tags.split(',');
         }
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
