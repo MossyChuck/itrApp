@@ -10,6 +10,9 @@ header nav{
 @media (min-width: 48em) {
   html {
     font-size: 18px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
 
