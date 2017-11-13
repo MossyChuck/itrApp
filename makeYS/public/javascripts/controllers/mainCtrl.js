@@ -1,5 +1,6 @@
 angular.module('app').controller('mainCtrl', function($scope, $http) {
     $scope.data = instructionModel.data;
+    $scope.sessionStorage = sessionStorage;        
     $scope.limitValue = 3;
     $scope.instructionsPerPage = 3;
     $scope.sortType = 'id';

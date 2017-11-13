@@ -1,4 +1,5 @@
 angular.module('app').controller('newPasswordCtrl', function($scope, $http){
+  $scope.sessionStorage = sessionStorage;      
   function checkNewPassword() {
     if ($('#changePassword').val() !== $('#confirmNewPassword').val()) {
       $('#passwordChanging').append("<p id='warningChangingPass'>Passwords are not the same</p>");

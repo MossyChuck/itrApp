@@ -1,6 +1,7 @@
 angular.module('app').controller('instructionCtrl',function($scope,$http){
     $scope.instruction = instructionModel.getInstructionById(localStorage.instructionId);
     $scope.newComment = {};
+    $scope.sessionStorage = sessionStorage;    
     var socket = io.connect('http://127.0.0.1');
     $scope.stars = [false,false,false,false,false];
     for(var i = 0; i<$scope.instruction.rating.length; i++){

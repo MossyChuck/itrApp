@@ -1,6 +1,6 @@
 angular.module("app").controller("signInCtrl",function($scope,$http) {
     $scope.textPattern = new RegExp('[a-z]');
-
+    $scope.sessionStorage = sessionStorage;        
     $scope.login = function (user) {
         $http.post('/login',user).then(function(responce) {
             $scope.message = responce.data;

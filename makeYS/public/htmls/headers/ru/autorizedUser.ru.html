@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-    <a href="#" class="navbar-brand" ng-click="changeContentUrl('/htmls/content/en/main.en.html');">MakeYS</a>
+    <a href="#" class="navbar-brand" ng-click="changeContentUrl('/htmls/content/'+sessionStorage.local+'/main.'+sessionStorage.local+'.html');">MakeYS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuContent" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,15 +7,15 @@
     <div class="collapse navbar-collapse" id="menuContent">
       <ul class="nav nav-pills mr-auto">
         <li class="nav-item">
-          <a class="nav-link" ng-click="changeContentUrl('/htmls/content/en/main.en.html');" href="">Главная</a>
+          <a class="nav-link" ng-click="changeContentUrl('/htmls/content/'+sessionStorage.local+'/main.'+sessionStorage.local+'.html');" href="">Главная</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Профиль</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/en/myProfile.en.html')";>Мой профиль</a>
-            <a class="dropdown-item" href="#" ng-click="changeContentUrl('htmls/content/en/adminPage.en.html')" ng-show="isAdmin();">Страница админа</a>
-            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/en/myInstructions.en.html')">Мои инструкции</a>
-            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/en/newInstruction.en.html')">Новая инструкция</a>
+            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/'+sessionStorage.local+'/myProfile.'+sessionStorage.local+'.html')";>Мой профиль</a>
+            <a class="dropdown-item" href="#" ng-click="changeContentUrl('htmls/content/'+sessionStorage.local+'/adminPage.'+sessionStorage.local+'.html')" ng-show="isAdmin();">Страница админа</a>
+            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/'+sessionStorage.local+'/myInstructions.'+sessionStorage.local+'.html')">Мои инструкции</a>
+            <a class="dropdown-item" href="#" ng-click="changeContentUrl('/htmls/content/'+sessionStorage.local+'/newInstruction.'+sessionStorage.local+'.html')">Новая инструкция</a>
           </div>
         </li>
         <li class="nav-item">

@@ -5,6 +5,7 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
     var files = new Array($scope.instruction.steps.length);
     var dropZone;
     var maxFileSize = 1000000;
+    $scope.sessionStorage = sessionStorage;    
     for(var i = 0; i<files.length; i++){
         files[i] = [];
 

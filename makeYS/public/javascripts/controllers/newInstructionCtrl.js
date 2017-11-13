@@ -6,6 +6,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
     $scope.instruction.rating = [];
     $scope.instruction.authorId = sessionStorage.userId;
     $scope.categories = instructionModel.categories;
+    $scope.sessionStorage = sessionStorage;    
     var dropZone;
     var maxFileSize = 1000000;
     var files = new Array(1);

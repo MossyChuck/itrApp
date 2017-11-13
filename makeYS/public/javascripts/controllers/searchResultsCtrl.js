@@ -4,6 +4,7 @@ angular.module('app').controller('searchResultsCtrl', function($scope, $http) {
     for(var i = 0; i < results.length; i++){
         $scope.data.push(instructionModel.getInstructionById(results[i]));
     }
+    $scope.sessionStorage = sessionStorage;        
     $scope.getAuthor = function (id) {
         return userModel.getUserById(id);
     }

@@ -1,5 +1,6 @@
 angular.module('app').controller('adminPageCtrl',function ($scope,$http) {
     $scope.users = userModel.data;
+    $scope.sessionStorage = sessionStorage;
     $scope.sortType = 'id';
     $scope.sortReverse = false;
     $scope.selected;

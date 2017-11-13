@@ -5,6 +5,7 @@ angular.module('app').controller('myInstructionsCtrl',function($scope,$http){
     $scope.selected;
     $scope.limitValue = 3;
     $scope.instructionsPerPage = 3;
+    $scope.sessionStorage = sessionStorage;        
     $scope.select = function(event){
         if($scope.selected == this.$index){
             $scope.selected = undefined;
