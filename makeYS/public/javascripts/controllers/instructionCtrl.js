@@ -140,7 +140,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
     }
     $scope.profile = function (id) {
         localStorage.profileId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/profile.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/profile.en.html'});
     }
     $scope.getUsername = function (id) {
         return userModel.getUserById(id).username;
@@ -154,11 +154,11 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
     }
     $scope.editInstruction = function (id) {
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl',{ url: '/htmls/content/editInstruction.html'});
+        $scope.$emit('changeContentUrl',{ url: '/htmls/content/en/editInstruction.en.html'});
     }
     $scope.deleteInstruction = function (id) {
         instructionModel.deleteInstructionById($http,id);
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/main.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/main.en.html'});
     }
     $scope.generatePDF = function () {
         var draw = kendo.drawing;
