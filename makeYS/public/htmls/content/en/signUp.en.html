@@ -33,37 +33,32 @@
         span.summary.ng-valid {
             color: green;
         }
-</style>
+      </style>
   <div ng-controller="signUpCtrl" style="width: 300px;" class="container">
     <form name="myForm" novalidate ng-submit="addNewUser(newUser)" class="form-signin">
       <div class="well">
         <div class="form-group">
-          <label>Имя пользователя:</label>
+          <label>User name:</label>
           <input name="userName" type="text" class="form-control" required ng-model="newUser.username" ng-pattern="textPattern">
         </div>
         <div class="form-group">
-          <label>Имя:</label>
+          <label>First name:</label>
           <input name="firstName" type="text" class="form-control" required ng-model="newUser.firstName" ng-pattern="textPattern" >
         </div>
         <div class="form-group">
-          <label>Фамилия:</label>
+          <label>Last name:</label>
           <input name="lastName" type="text" class="form-control" required ng-model="newUser.lastName" ng-pattern="textPattern">
         </div>
         <div class="form-group">
-<<<<<<< HEAD
           <label>Email:</label>
-          <input name="userEmail" type="email" class="form-control" required ng-model="newUser.email" ng-maxlength="30">
-=======
-          <label>Почта:</label>
           <input name="userEmail" type="email" class="form-control" required ng-model="newUser.email">
->>>>>>> 8ac76cf9036ce9be533b9c568f501a6e306ed5cb
         </div>
         <div class="form-group">
-          <label>Пароль:</label>
+          <label>Password:</label>
           <input name="userPassword" type="password" class="form-control" required ng-model="newUser.password" ng-minlength="5">
         </div>
         <button type="submit" class="btn btn-primary btn-block" ng-disabled="myForm.$invalid">
-          Регистрация
+          Sign Up
         </button>
       </div>
       <div class="well container" style="font-weight:bold; color:red;">
