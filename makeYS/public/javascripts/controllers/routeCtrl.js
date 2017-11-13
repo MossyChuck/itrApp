@@ -9,11 +9,6 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
             $scope.$digest();
         });
     });
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 861ae938d952995320d38b31db1825ce2c2c8bf0
     var currentTheme = sessionStorage.colorTheme || 'light';
     if(!sessionStorage.local){
         sessionStorage.local = 'en';
