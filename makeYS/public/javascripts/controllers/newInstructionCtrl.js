@@ -37,6 +37,9 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
     $scope.create = function () {
         if($scope.tags.length!=0){
             $scope.instruction.tags = $scope.tags.split(',');
+            for(var i = 0; i<$scope.instruction.tags.length; i++){
+                $scope.instruction.tags[i] = $scope.instruction.tags[i].trim();
+            }
         }
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
         $scope.message = responce.data;
