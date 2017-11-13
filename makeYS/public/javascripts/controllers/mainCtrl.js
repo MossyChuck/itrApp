@@ -13,11 +13,11 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
     }
     $scope.profile = function (id) {
         localStorage.profileId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/profile.en.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/profile.'+sessionStorage.local+'.html'});
     }
     $scope.openInstruction = function (id) {
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/instruction.'+sessionStorage.local+'.html'});
     }
     $scope.averageRating = function (id) {
         var rating = 0;
@@ -55,6 +55,6 @@ angular.module('app').controller('mainCtrl', function($scope, $http) {
         }
         console.log(results);
         localStorage.searchResults = results;
-        $scope.$emit('changeContentUrl', { url: 'htmls/content/en/searchResults.en.html'});
+        $scope.$emit('changeContentUrl', { url: 'htmls/content/'+sessionStorage.local+'/searchResults.'+sessionStorage.local+'.html'});
     }
 });

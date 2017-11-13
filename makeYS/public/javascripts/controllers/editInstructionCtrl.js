@@ -23,12 +23,12 @@ angular.module('app').controller('editInstructionCtrl',function($scope,$http){
         }
         $http.post('/instruction/change',{instruction:$scope.instruction}).then(function (){
             instructionModel.load($http);
-            $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
+            $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/instruction.'+sessionStorage.local+'.html'});
         });
 
     }
     $scope.cancel = function (){
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/instruction.'+sessionStorage.local+'.html'});
     }
     $scope.deleteImages = function(){
         files[this.$index] = [];
