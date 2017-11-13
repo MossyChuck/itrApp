@@ -15,11 +15,11 @@ angular.module('app').controller('searchResultsCtrl', function($scope, $http) {
     }
     $scope.profile = function (id) {
         localStorage.profileId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/profile.en.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/profile.'+sessionStorage.local+'.html'});
     }
     $scope.openInstruction = function (id) {
         localStorage.instructionId = id;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/instruction.en.html'});
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/instruction.'+sessionStorage.local+'.html'});
     }
     $scope.averageRating = function (id) {
         var rating = 0;

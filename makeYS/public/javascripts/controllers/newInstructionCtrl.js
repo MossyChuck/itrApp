@@ -39,7 +39,7 @@ angular.module('app').controller('newInstructionCtrl', function ($scope, $http) 
         }
         $http.post('/createInstruction', $scope.instruction).then(function (responce) {
         $scope.message = responce.data;
-        $scope.$emit('changeContentUrl', { url: '/htmls/content/en/main.en.html' });
+        $scope.$emit('changeContentUrl', { url: '/htmls/content/'+sessionStorage.local+'/main.'+sessionStorage.local+'.html' });
         });
     };
     function makeDropZones(){

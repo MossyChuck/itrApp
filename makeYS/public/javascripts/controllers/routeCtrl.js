@@ -9,7 +9,11 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
             $scope.$digest();
         });
     });
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 861ae938d952995320d38b31db1825ce2c2c8bf0
     var currentTheme = sessionStorage.colorTheme || 'light';
     if(!sessionStorage.local){
         sessionStorage.local = 'en';
@@ -37,12 +41,11 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         }
     }
 
-
     $scope.isAdmin = function(){
         return sessionStorage.role=='admin' ? true : false;
     }
-    $scope.contentUrl = "/htmls/content/en/main.en.html";
-    $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/en/autorizedUser.en.html" : "/htmls/headers/en/nonAutorized.en.html";
+    $scope.contentUrl = "/htmls/content/"+sessionStorage.local+"/main.en.html";
+    $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/"+sessionStorage.local+"/autorizedUser."+sessionStorage.local+".html" : "/htmls/headers/en/nonAutorized.en.html";
     $scope.$on('changeContentUrl', function (event,args) {
         $scope.contentUrl = args.url;
         $scope.message = args.message;
@@ -53,7 +56,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     $scope.logout = function () {
         delete sessionStorage.role;
         delete sessionStorage.userId;
-        $scope.headerUrl = "/htmls/headers/en/nonAutorized.en.html";
+        $scope.headerUrl = "/htmls/headers/"+sessionStorage.local+"/nonAutorized."+sessionStorage.local+".html";
     }
     $scope.changeContentUrl = function (url) {
         $scope.contentUrl = url;
@@ -73,7 +76,7 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         }
         console.log(results);
         localStorage.searchResults = results;
-        $scope.$emit('changeContentUrl', { url: 'htmls/content/en/searchResults.en.html'});
+        $scope.$emit('changeContentUrl', { url: "htmls/content/"+sessionStorage.local+"/searchResults."+sessionStorage.local+".html"});
     }
 
 });
