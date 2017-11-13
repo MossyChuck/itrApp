@@ -1,0 +1,47 @@
+<div ng-controller="myInstructionsCtrl">
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse;">
+                    id
+                    <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse;">
+                        название
+                        <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span>                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortType = 'created'; sortReverse = !sortReverse;">
+                        создана
+                        <span ng-show="sortType == 'created' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'created' && sortReverse" class="fa fa-caret-up"></span>
+                   </a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="instruction in instructions | orderBy:sortType:sortReverse | limitTo : limitValue" ng-click="select()" style="height:70px;">
+                <td>{{instruction.id}}</td>
+                <td><a href="" ng-click="openInstruction(instruction.id)">{{instruction.title}}</a></td>
+                <td>{{instruction.created | date: 'yyyy-MM-dd'}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example" style="width:150px;">
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="editInstruction(instruction.id);">Редактировать</button>
+                        <button type="button" class="btn btn-default" ng-show="selected == $index" ng-click="deleteInstruction(instruction.id);">Удалить</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <nav class="blog-pagination">
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue + instructionsPerPage;" ng-disabled="limitValue>=instructions.length">Больше</button>
+        <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue - instructionsPerPage;" ng-disabled="limitValue==instructionsPerPage">Меньше</button>
+    </nav>
+</div>

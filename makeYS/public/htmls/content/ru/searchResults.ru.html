@@ -1,0 +1,29 @@
+<div class="container" ng-controller="searchResultsCtrl">
+    <div class="row">
+
+      <div class="col-sm-8 blog-main">
+          Рехультаты поиска
+        <button class="btn btn-default" ng-click="setSortType('id')">Обновить</button>
+        <button class="btn btn-default" ng-click="setSortType(ratingSort)">Самые популярные</button>
+        <div class="blog-post" ng-repeat="instruction in data | orderBy: sortType : true | limitTo : limitValue">
+          <h2 class="blog-post-title"><a href="" ng-click="openInstruction(instruction.id);">{{instruction.title}}</a></h2>
+          <p class="blog-post-meta">{{instruction.created|date:'yyyy-MM-dd'}} <a href="" ng-click="profile(instruction.authorId)">{{getUsername(instruction.authorId)}} <img ng-repeat="img in getAuthor(instruction.authorId).medals" src="{{img.src}}" alt="medal" title="{{img.title}}"></a> Категория {{instruction.category}}, теги: <span ng-repeat="tag in instruction.tags">{{tag}}, </span>
+            Рейтинг: {{averageRating(instruction.id)}}
+          </p>
+          <div>
+            <h3>{{instruction.steps[0].title}}</h3>
+            <p>{{instruction.steps[0].text}}</p>
+          </div>
+          <hr>
+        </div><!-- /.blog-post -->
+
+        <nav class="blog-pagination">
+          <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue + instructionsPerPage;" ng-disabled="limitValue>=data.length">Больше</button>
+          <button class="btn btn-outline-primary" href="" ng-click="limitValue=limitValue - instructionsPerPage;" ng-disabled="limitValue==instructionsPerPage">Меньше</button>
+        </nav>
+
+      </div><!-- /.blog-main -->
+
+    </div><!-- /.row -->
+
+  </div>

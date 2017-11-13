@@ -18,7 +18,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         for(var i = 0; i<$scope.instruction.rating.length;i++){
             rating += $scope.instruction.rating[i].rating;
         }
-        if(!rating) return rating;        
+        if(!rating) return rating;
         return rating/$scope.instruction.rating.length;
     }
     $scope.changeRating = function (rating){
@@ -92,17 +92,17 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         if(step.imagesLinks) {
             step.imagesLinks.forEach(function(element) {
                 dbx.sharingGetSharedLinkFile({url: element})
-                .then(function(data) {                    
+                .then(function(data) {
                     var reader = new window.FileReader();
                     var extention = data.name.substring(data.name.lastIndexOf('.')+1);
-                    reader.readAsDataURL(data.fileBlob); 
+                    reader.readAsDataURL(data.fileBlob);
                     reader.onloadend = function() {
                                    var base64data = reader.result.replace('application/octet-stream','image/'+extention);
                                    step.img.push(base64data);
                                    $scope.$digest();
-                                   
+
                      }
-                    
+
                 })
                 .catch(function(error) {
                     console.error(error);
@@ -116,7 +116,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
         }
         comment.likes = [];
         $scope.instruction.comments.push(comment)
-        if(fromSocket){  
+        if(fromSocket){
             instructionModel.changeProperty($http,$scope.instruction.id,'comments',JSON.stringify($scope.instruction.comments));
             instructionModel.load($http);
         }
@@ -125,7 +125,7 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
             socket.emit('comment',comment);
             $scope.newComment = {}
         }
-        
+
     }
     $scope.deleteComment = function (index,fromSocket) {
         $scope.instruction.comments.splice(index,1);
@@ -180,6 +180,6 @@ angular.module('app').controller('instructionCtrl',function($scope,$http){
                 $('#pdf').css('color','#fff');
             }
         });
-        
+
     }
 });
