@@ -25,7 +25,8 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     }
     $scope.changeLanguage = function () {
         sessionStorage.local = sessionStorage.local == 'en' ? 'ru' : 'en';
-        $scope.$digest();
+        $scope.changeContentUrl("/htmls/content/"+sessionStorage.local+"/main."+sessionStorage.local+".html");
+        $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/"+sessionStorage.local+"/autorizedUser."+sessionStorage.local+".html" : "/htmls/headers/"+sessionStorage.local+"/nonAutorized."+sessionStorage.local+".html";        
     }
     function changeHeaderClass () {
         if (currentTheme == 'light') {
