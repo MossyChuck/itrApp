@@ -39,8 +39,8 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
     $scope.isAdmin = function(){
         return sessionStorage.role=='admin' ? true : false;
     }
-    $scope.contentUrl = "/htmls/content/"+sessionStorage.local+"/main.en.html";
-    $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/"+sessionStorage.local+"/autorizedUser."+sessionStorage.local+".html" : "/htmls/headers/en/nonAutorized.en.html";
+    $scope.contentUrl = "/htmls/content/"+sessionStorage.local+"/main."+sessionStorage.local+".html";
+    $scope.headerUrl = sessionStorage.userId != undefined?"/htmls/headers/"+sessionStorage.local+"/autorizedUser."+sessionStorage.local+".html" : "/htmls/headers/"+sessionStorage.local+"/nonAutorized."+sessionStorage.local+".html";
     $scope.$on('changeContentUrl', function (event,args) {
         $scope.contentUrl = args.url;
         $scope.message = args.message;
