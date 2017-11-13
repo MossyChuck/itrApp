@@ -9,7 +9,12 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
             $scope.$digest();
         });
     });
+    
     var currentTheme = sessionStorage.colorTheme || 'light';
+    if(!sessionStorage.local){
+        sessionStorage.local = 'en';
+    }
+    var currentLanguage = sessionStorage.local;
     $scope.styleUrl = styles[currentTheme];
     changeHeaderClass();
     $scope.changeTheme = function () {
@@ -17,6 +22,10 @@ angular.module("app").controller("routeCtrl",function($scope, $http) {
         $scope.styleUrl = styles[currentTheme];
         sessionStorage.colorTheme = currentTheme;
         changeHeaderClass();
+    }
+    $scope.changeLanguage = function () {
+        sessionStorage.local = sessionStorage.local == 'en' ? 'ru' : 'en';
+        $scope.$digest();
     }
     function changeHeaderClass () {
         if (currentTheme == 'light') {
